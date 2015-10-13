@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 
+
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
 @end
@@ -22,6 +23,9 @@
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
+    
+    [self setupParse];
+    
     return YES;
 }
 
@@ -56,6 +60,13 @@
     } else {
         return NO;
     }
+}
+
+#pragma mark - Setup Parse
+
+- (void) setupParse {
+    NSDictionary *parseInfo = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"Parse"];
+    [Parse setApplicationId:parseInfo[@"ApplicationId"] clientKey:parseInfo[@"ClientKey"]];
 }
 
 @end
