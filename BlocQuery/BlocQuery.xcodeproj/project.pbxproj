@@ -16,6 +16,20 @@
 		9A00082F1BCD650600EECA2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A00082E1BCD650600EECA2A /* Assets.xcassets */; };
 		9A0008321BCD650600EECA2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0008301BCD650600EECA2A /* LaunchScreen.storyboard */; };
 		9A00083D1BCD650600EECA2A /* BlocQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A00083C1BCD650600EECA2A /* BlocQueryTests.m */; };
+		9A00084B1BCD78A600EECA2A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A00084A1BCD78A600EECA2A /* Login.storyboard */; settings = {ASSET_TAGS = (); }; };
+		9A0008521BCD794800EECA2A /* UIColor+BQColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0008511BCD794800EECA2A /* UIColor+BQColor.m */; settings = {ASSET_TAGS = (); }; };
+		9A0008561BCD7DB400EECA2A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0008551BCD7DB400EECA2A /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9A0008591BCD877C00EECA2A /* LoginFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0008581BCD877C00EECA2A /* LoginFormController.m */; settings = {ASSET_TAGS = (); }; };
+		9A00085C1BCD95A800EECA2A /* NSString+Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A00085B1BCD95A800EECA2A /* NSString+Validator.m */; settings = {ASSET_TAGS = (); }; };
+		9A00085E1BCD97E800EECA2A /* NSString+ValidatorTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A00085D1BCD97E800EECA2A /* NSString+ValidatorTestCase.m */; settings = {ASSET_TAGS = (); }; };
+		9A0008631BCD9C7200EECA2A /* LoginFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0008621BCD9C7200EECA2A /* LoginFormValidator.m */; settings = {ASSET_TAGS = (); }; };
+		9A0008671BCDA26700EECA2A /* Shared.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0008661BCDA26700EECA2A /* Shared.storyboard */; settings = {ASSET_TAGS = (); }; };
+		9A00086B1BCDA47C00EECA2A /* UIFont+BQFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A00086A1BCDA47C00EECA2A /* UIFont+BQFont.m */; settings = {ASSET_TAGS = (); }; };
+		9A00086F1BCDAF1A00EECA2A /* ParseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A00086E1BCDAF1A00EECA2A /* ParseService.m */; settings = {ASSET_TAGS = (); }; };
+		9A0008731BCDB4AE00EECA2A /* ParseErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0008721BCDB4AE00EECA2A /* ParseErrorHandler.m */; settings = {ASSET_TAGS = (); }; };
+		9A0008761BCDC3BC00EECA2A /* SignupFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0008751BCDC3BC00EECA2A /* SignupFormValidator.m */; settings = {ASSET_TAGS = (); }; };
+		9A0008791BCDC47C00EECA2A /* NSError+BQError.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0008781BCDC47C00EECA2A /* NSError+BQError.m */; settings = {ASSET_TAGS = (); }; };
+		9A00087C1BCDC79000EECA2A /* SignupFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A00087B1BCDC79000EECA2A /* SignupFormController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +60,35 @@
 		9A00083C1BCD650600EECA2A /* BlocQueryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocQueryTests.m; sourceTree = "<group>"; };
 		9A00083E1BCD650600EECA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A0008471BCD6BBE00EECA2A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		9A00084A1BCD78A600EECA2A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		9A0008501BCD794800EECA2A /* UIColor+BQColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BQColor.h"; sourceTree = "<group>"; };
+		9A0008511BCD794800EECA2A /* UIColor+BQColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BQColor.m"; sourceTree = "<group>"; };
+		9A0008541BCD7DB400EECA2A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		9A0008551BCD7DB400EECA2A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		9A0008571BCD877C00EECA2A /* LoginFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginFormController.h; sourceTree = "<group>"; };
+		9A0008581BCD877C00EECA2A /* LoginFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginFormController.m; sourceTree = "<group>"; };
+		9A00085A1BCD95A800EECA2A /* NSString+Validator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validator.h"; sourceTree = "<group>"; };
+		9A00085B1BCD95A800EECA2A /* NSString+Validator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validator.m"; sourceTree = "<group>"; };
+		9A00085D1BCD97E800EECA2A /* NSString+ValidatorTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ValidatorTestCase.m"; sourceTree = "<group>"; };
+		9A0008601BCD9BD200EECA2A /* FormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidator.h; sourceTree = "<group>"; };
+		9A0008611BCD9C7200EECA2A /* LoginFormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginFormValidator.h; sourceTree = "<group>"; };
+		9A0008621BCD9C7200EECA2A /* LoginFormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginFormValidator.m; sourceTree = "<group>"; };
+		9A0008651BCD9F7F00EECA2A /* BQErrorDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQErrorDomain.h; sourceTree = "<group>"; };
+		9A0008661BCDA26700EECA2A /* Shared.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Shared.storyboard; sourceTree = "<group>"; };
+		9A0008681BCDA3F800EECA2A /* BQConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQConstant.h; sourceTree = "<group>"; };
+		9A0008691BCDA47C00EECA2A /* UIFont+BQFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+BQFont.h"; sourceTree = "<group>"; };
+		9A00086A1BCDA47C00EECA2A /* UIFont+BQFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+BQFont.m"; sourceTree = "<group>"; };
+		9A00086D1BCDAF1A00EECA2A /* ParseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseService.h; sourceTree = "<group>"; };
+		9A00086E1BCDAF1A00EECA2A /* ParseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseService.m; sourceTree = "<group>"; };
+		9A0008711BCDB4AE00EECA2A /* ParseErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseErrorHandler.h; sourceTree = "<group>"; };
+		9A0008721BCDB4AE00EECA2A /* ParseErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseErrorHandler.m; sourceTree = "<group>"; };
+		9A0008741BCDC3BC00EECA2A /* SignupFormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupFormValidator.h; sourceTree = "<group>"; };
+		9A0008751BCDC3BC00EECA2A /* SignupFormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupFormValidator.m; sourceTree = "<group>"; };
+		9A0008771BCDC47C00EECA2A /* NSError+BQError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+BQError.h"; sourceTree = "<group>"; };
+		9A0008781BCDC47C00EECA2A /* NSError+BQError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+BQError.m"; sourceTree = "<group>"; };
+		9A00087A1BCDC79000EECA2A /* SignupFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupFormController.h; sourceTree = "<group>"; };
+		9A00087B1BCDC79000EECA2A /* SignupFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupFormController.m; sourceTree = "<group>"; };
+		9A00087D1BCDE40700EECA2A /* BQNotificationName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQNotificationName.h; sourceTree = "<group>"; };
 		D08894C34BEF91612BD08F5C /* libPods-BlocQuery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlocQuery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE581D9C49A30C10ADA916FB /* Pods-BlocQuery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlocQuery.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlocQuery/Pods-BlocQuery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,15 +152,23 @@
 		9A00081E1BCD650600EECA2A /* BlocQuery */ = {
 			isa = PBXGroup;
 			children = (
+				9A0008701BCDB49900EECA2A /* Error */,
+				9A00086C1BCDAF0300EECA2A /* Service */,
+				9A0008641BCD9F5F00EECA2A /* Constant */,
+				9A00085F1BCD9BB900EECA2A /* Validator */,
+				9A0008531BCD7D9B00EECA2A /* Controller */,
+				9A00084C1BCD790600EECA2A /* Category */,
 				9A0008221BCD650600EECA2A /* AppDelegate.h */,
 				9A0008231BCD650600EECA2A /* AppDelegate.m */,
 				9A0008251BCD650600EECA2A /* MasterViewController.h */,
 				9A0008261BCD650600EECA2A /* MasterViewController.m */,
 				9A0008281BCD650600EECA2A /* DetailViewController.h */,
 				9A0008291BCD650600EECA2A /* DetailViewController.m */,
-				9A00082B1BCD650600EECA2A /* Main.storyboard */,
-				9A00082E1BCD650600EECA2A /* Assets.xcassets */,
 				9A0008301BCD650600EECA2A /* LaunchScreen.storyboard */,
+				9A00082B1BCD650600EECA2A /* Main.storyboard */,
+				9A00084A1BCD78A600EECA2A /* Login.storyboard */,
+				9A0008661BCDA26700EECA2A /* Shared.storyboard */,
+				9A00082E1BCD650600EECA2A /* Assets.xcassets */,
 				9A0008331BCD650600EECA2A /* Info.plist */,
 				9A00081F1BCD650600EECA2A /* Supporting Files */,
 				9A0008471BCD6BBE00EECA2A /* PrefixHeader.pch */,
@@ -138,8 +189,77 @@
 			children = (
 				9A00083C1BCD650600EECA2A /* BlocQueryTests.m */,
 				9A00083E1BCD650600EECA2A /* Info.plist */,
+				9A00085D1BCD97E800EECA2A /* NSString+ValidatorTestCase.m */,
 			);
 			path = BlocQueryTests;
+			sourceTree = "<group>";
+		};
+		9A00084C1BCD790600EECA2A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				9A0008501BCD794800EECA2A /* UIColor+BQColor.h */,
+				9A0008511BCD794800EECA2A /* UIColor+BQColor.m */,
+				9A00085A1BCD95A800EECA2A /* NSString+Validator.h */,
+				9A00085B1BCD95A800EECA2A /* NSString+Validator.m */,
+				9A0008691BCDA47C00EECA2A /* UIFont+BQFont.h */,
+				9A00086A1BCDA47C00EECA2A /* UIFont+BQFont.m */,
+				9A0008771BCDC47C00EECA2A /* NSError+BQError.h */,
+				9A0008781BCDC47C00EECA2A /* NSError+BQError.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		9A0008531BCD7D9B00EECA2A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A0008541BCD7DB400EECA2A /* LoginViewController.h */,
+				9A0008551BCD7DB400EECA2A /* LoginViewController.m */,
+				9A0008571BCD877C00EECA2A /* LoginFormController.h */,
+				9A0008581BCD877C00EECA2A /* LoginFormController.m */,
+				9A00087A1BCDC79000EECA2A /* SignupFormController.h */,
+				9A00087B1BCDC79000EECA2A /* SignupFormController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9A00085F1BCD9BB900EECA2A /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				9A0008601BCD9BD200EECA2A /* FormValidator.h */,
+				9A0008611BCD9C7200EECA2A /* LoginFormValidator.h */,
+				9A0008621BCD9C7200EECA2A /* LoginFormValidator.m */,
+				9A0008741BCDC3BC00EECA2A /* SignupFormValidator.h */,
+				9A0008751BCDC3BC00EECA2A /* SignupFormValidator.m */,
+			);
+			name = Validator;
+			sourceTree = "<group>";
+		};
+		9A0008641BCD9F5F00EECA2A /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				9A0008651BCD9F7F00EECA2A /* BQErrorDomain.h */,
+				9A0008681BCDA3F800EECA2A /* BQConstant.h */,
+				9A00087D1BCDE40700EECA2A /* BQNotificationName.h */,
+			);
+			name = Constant;
+			sourceTree = "<group>";
+		};
+		9A00086C1BCDAF0300EECA2A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9A00086D1BCDAF1A00EECA2A /* ParseService.h */,
+				9A00086E1BCDAF1A00EECA2A /* ParseService.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		9A0008701BCDB49900EECA2A /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				9A0008711BCDB4AE00EECA2A /* ParseErrorHandler.h */,
+				9A0008721BCDB4AE00EECA2A /* ParseErrorHandler.m */,
+			);
+			name = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +345,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A00084B1BCD78A600EECA2A /* Login.storyboard in Resources */,
+				9A0008671BCDA26700EECA2A /* Shared.storyboard in Resources */,
 				9A0008321BCD650600EECA2A /* LaunchScreen.storyboard in Resources */,
 				9A00082F1BCD650600EECA2A /* Assets.xcassets in Resources */,
 				9A00082D1BCD650600EECA2A /* Main.storyboard in Resources */,
@@ -293,10 +415,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A0008631BCD9C7200EECA2A /* LoginFormValidator.m in Sources */,
+				9A0008731BCDB4AE00EECA2A /* ParseErrorHandler.m in Sources */,
+				9A00085C1BCD95A800EECA2A /* NSString+Validator.m in Sources */,
 				9A0008241BCD650600EECA2A /* AppDelegate.m in Sources */,
+				9A00086F1BCDAF1A00EECA2A /* ParseService.m in Sources */,
+				9A0008521BCD794800EECA2A /* UIColor+BQColor.m in Sources */,
+				9A0008561BCD7DB400EECA2A /* LoginViewController.m in Sources */,
 				9A0008271BCD650600EECA2A /* MasterViewController.m in Sources */,
+				9A00086B1BCDA47C00EECA2A /* UIFont+BQFont.m in Sources */,
 				9A0008211BCD650600EECA2A /* main.m in Sources */,
 				9A00082A1BCD650600EECA2A /* DetailViewController.m in Sources */,
+				9A0008791BCDC47C00EECA2A /* NSError+BQError.m in Sources */,
+				9A00087C1BCDC79000EECA2A /* SignupFormController.m in Sources */,
+				9A0008761BCDC3BC00EECA2A /* SignupFormValidator.m in Sources */,
+				9A0008591BCD877C00EECA2A /* LoginFormController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A00085E1BCD97E800EECA2A /* NSString+ValidatorTestCase.m in Sources */,
 				9A00083D1BCD650600EECA2A /* BlocQueryTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

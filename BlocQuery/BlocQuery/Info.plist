@@ -2,13 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Parse</key>
-	<dict>
-		<key>ApplicationId</key>
-		<string>K9f9AZdCeiJdfiHLM3SZfpyJiGggkg6WaJqmsvFA</string>
-		<key>ClientKey</key>
-		<string>jSjYIJw2dbT64j2spZTSzZ3jJBWbuDQ0bGfJtBz9</string>
-	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -29,10 +22,81 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>Parse</key>
+	<dict>
+		<key>ApplicationId</key>
+		<string>K9f9AZdCeiJdfiHLM3SZfpyJiGggkg6WaJqmsvFA</string>
+		<key>ClientKey</key>
+		<string>jSjYIJw2dbT64j2spZTSzZ3jJBWbuDQ0bGfJtBz9</string>
+		<key>ErrorMapping</key>
+		<dict>
+			<key>101-login</key>
+			<dict>
+				<key>description</key>
+				<string>Login failed.</string>
+				<key>reason</key>
+				<string>Login parameters are invalid.</string>
+				<key>recovery</key>
+				<string>Oops! We did not find your account. Please make sure email and password are correct.</string>
+			</dict>
+			<key>200-*</key>
+			<dict>
+				<key>description</key>
+				<string>Username is missing.</string>
+				<key>reason</key>
+				<string>Username is missing.</string>
+				<key>recovery</key>
+				<string>Please provide a username.</string>
+			</dict>
+			<key>201-*</key>
+			<dict>
+				<key>description</key>
+				<string>Password is missing.</string>
+				<key>reason</key>
+				<string>Password is missing.</string>
+				<key>recovery</key>
+				<string>Please provide a password.</string>
+			</dict>
+			<key>202-*</key>
+			<dict>
+				<key>description</key>
+				<string>Username is taken.</string>
+				<key>reason</key>
+				<string>Username is taken.</string>
+				<key>recovery</key>
+				<string>Username is taken. Please choose another username.</string>
+			</dict>
+			<key>203-*</key>
+			<dict>
+				<key>description</key>
+				<string>Email is taken.</string>
+				<key>reason</key>
+				<string>Email is taken.</string>
+				<key>recovery</key>
+				<string>Email is taken. Please log in if you have already registered.</string>
+			</dict>
+			<key>204-*</key>
+			<dict>
+				<key>description</key>
+				<string>Email is missing.</string>
+				<key>reason</key>
+				<string>Email is missing.</string>
+				<key>recovery</key>
+				<string>Email is missing. Please provide your email.</string>
+			</dict>
+			<key>205-*</key>
+			<dict>
+				<key>description</key>
+				<string>User with email not found.</string>
+				<key>reason</key>
+				<string>User with email not found.</string>
+				<key>recovery</key>
+				<string>We don't have a user with this email on record.</string>
+			</dict>
+		</dict>
+	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

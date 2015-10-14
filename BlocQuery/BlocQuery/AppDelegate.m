@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
-
+#import "LoginViewController.h"
+#import "ParseErrorHandler.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -18,13 +19,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
     // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-    splitViewController.delegate = self;
+//    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+//    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+//    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
+//    splitViewController.delegate = self;
     
     [self setupParse];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedIn) name:BQUserLoggedInNotification object:nil];
+    
+    if ([PFUser currentUser]) {
+        self.window.rootViewController = [self mainController];
+    } else {
+        self.window.rootViewController = [self loginViewController];
+    }
+    
+    [self.window makeKeyAndVisible];
+    //[self.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
     
     return YES;
 }
@@ -51,22 +65,35 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-#pragma mark - Split view
-
-- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
-        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
 #pragma mark - Setup Parse
 
 - (void) setupParse {
     NSDictionary *parseInfo = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"Parse"];
     [Parse setApplicationId:parseInfo[@"ApplicationId"] clientKey:parseInfo[@"ClientKey"]];
+}
+
+#pragma mark - UI
+
+- (UIViewController *) loginViewController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    return loginVC;
+}
+
+- (UIViewController *) mainController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UISplitViewController *splitVC = [storyboard instantiateViewControllerWithIdentifier:@"MainSplitViewController"];
+    return splitVC;
+    
+}
+
+- (void) userLoggedIn {
+    [UIView transitionWithView:self.window duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        BOOL oldState = [UIView areAnimationsEnabled];
+        [UIView setAnimationsEnabled:NO];
+        self.window.rootViewController = [self mainController];
+        [UIView setAnimationsEnabled:oldState];
+    } completion:nil];
 }
 
 @end
