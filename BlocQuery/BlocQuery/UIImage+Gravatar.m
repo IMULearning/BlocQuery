@@ -15,7 +15,7 @@
 + (UIImage *) imageWithGravatarEmail:(NSString *)email size:(NSUInteger)size fallbackImage:(UIImage *)fallback {
     NSAssert([email isValidEmailWithStrictFilter:NO], @"Must provide a valid email");
     
-    NSString *gravatarUrl = [NSString stringWithFormat:@"https://s.gravatar.com/avatar/%@?s=%ld", [email MD5], size];
+    NSString *gravatarUrl = [NSString stringWithFormat:@"https://s.gravatar.com/avatar/%@?s=%ld&d=404", [email MD5], size];
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:gravatarUrl]];
     if (!imageData) {
         return fallback;

@@ -51,7 +51,7 @@
 }
 
 - (void) setAuthorAvartarWithEmail:(NSString *)authorEmail {
-    UIImage *fallback = [[FAKFontAwesome userIconWithSize:80] imageWithSize:CGSizeMake(80, 80)];
+    UIImage *fallback = [[FAKFontAwesome userIconWithSize:60] imageWithSize:CGSizeMake(80, 80)];
     UIImage *gravatar = [UIImage imageWithGravatarEmail:authorEmail size:80 fallbackImage:fallback];
     [self.avartarImage setImage:gravatar];
 }
