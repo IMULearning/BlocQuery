@@ -18,4 +18,7 @@
 - (void) loginUserWithForm:(NSDictionary *)form
                      block:(void (^)(PFUser *user, NSError *error))callback;
 
+- (void) createQuestionWithForm:(NSDictionary *)form
+                          block:(void (^)(BOOL succeeded, NSError *error))callback;
+
 @end

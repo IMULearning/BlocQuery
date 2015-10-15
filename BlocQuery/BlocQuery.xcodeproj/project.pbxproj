@@ -30,6 +30,17 @@
 		9A0008761BCDC3BC00EECA2A /* SignupFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0008751BCDC3BC00EECA2A /* SignupFormValidator.m */; settings = {ASSET_TAGS = (); }; };
 		9A0008791BCDC47C00EECA2A /* NSError+BQError.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0008781BCDC47C00EECA2A /* NSError+BQError.m */; settings = {ASSET_TAGS = (); }; };
 		9A00087C1BCDC79000EECA2A /* SignupFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A00087B1BCDC79000EECA2A /* SignupFormController.m */; settings = {ASSET_TAGS = (); }; };
+		9AC07B4E1BCF422D00898527 /* BQQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B4D1BCF422D00898527 /* BQQuestion.m */; settings = {ASSET_TAGS = (); }; };
+		9AC07B511BCF447A00898527 /* BQAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B501BCF447A00898527 /* BQAnswer.m */; settings = {ASSET_TAGS = (); }; };
+		9AC07B561BCF5E5E00898527 /* Question.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC07B551BCF5E5E00898527 /* Question.storyboard */; settings = {ASSET_TAGS = (); }; };
+		9AC07B591BCF5F9B00898527 /* BQQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B581BCF5F9B00898527 /* BQQuestionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9AC07B5D1BCF63B900898527 /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B5C1BCF63B900898527 /* QuestionTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		9AC07B601BCF700500898527 /* AskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B5F1BCF700500898527 /* AskViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9AC07B631BCF7B8D00898527 /* QuestionFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B621BCF7B8D00898527 /* QuestionFormValidator.m */; settings = {ASSET_TAGS = (); }; };
+		9AC07B661BCF82B100898527 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B651BCF82B100898527 /* NSString+Hash.m */; settings = {ASSET_TAGS = (); }; };
+		9AC07B681BCF831D00898527 /* NSString+HashTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B671BCF831D00898527 /* NSString+HashTestCase.m */; settings = {ASSET_TAGS = (); }; };
+		9AC07B6B1BCF843500898527 /* UIImage+Gravatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B6A1BCF843500898527 /* UIImage+Gravatar.m */; settings = {ASSET_TAGS = (); }; };
+		9AC07B6D1BCF856C00898527 /* UIImage+GravatarTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B6C1BCF856C00898527 /* UIImage+GravatarTestCase.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +100,25 @@
 		9A00087A1BCDC79000EECA2A /* SignupFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupFormController.h; sourceTree = "<group>"; };
 		9A00087B1BCDC79000EECA2A /* SignupFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupFormController.m; sourceTree = "<group>"; };
 		9A00087D1BCDE40700EECA2A /* BQNotificationName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQNotificationName.h; sourceTree = "<group>"; };
+		9AC07B4C1BCF422D00898527 /* BQQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQQuestion.h; sourceTree = "<group>"; };
+		9AC07B4D1BCF422D00898527 /* BQQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQQuestion.m; sourceTree = "<group>"; };
+		9AC07B4F1BCF447900898527 /* BQAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQAnswer.h; sourceTree = "<group>"; };
+		9AC07B501BCF447A00898527 /* BQAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQAnswer.m; sourceTree = "<group>"; };
+		9AC07B551BCF5E5E00898527 /* Question.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Question.storyboard; sourceTree = "<group>"; };
+		9AC07B571BCF5F9B00898527 /* BQQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQQuestionViewController.h; sourceTree = "<group>"; };
+		9AC07B581BCF5F9B00898527 /* BQQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQQuestionViewController.m; sourceTree = "<group>"; };
+		9AC07B5B1BCF63B900898527 /* QuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionTableViewCell.h; sourceTree = "<group>"; };
+		9AC07B5C1BCF63B900898527 /* QuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionTableViewCell.m; sourceTree = "<group>"; };
+		9AC07B5E1BCF700500898527 /* AskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskViewController.h; sourceTree = "<group>"; };
+		9AC07B5F1BCF700500898527 /* AskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskViewController.m; sourceTree = "<group>"; };
+		9AC07B611BCF7B8D00898527 /* QuestionFormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionFormValidator.h; sourceTree = "<group>"; };
+		9AC07B621BCF7B8D00898527 /* QuestionFormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionFormValidator.m; sourceTree = "<group>"; };
+		9AC07B641BCF82B100898527 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		9AC07B651BCF82B100898527 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		9AC07B671BCF831D00898527 /* NSString+HashTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HashTestCase.m"; sourceTree = "<group>"; };
+		9AC07B691BCF843500898527 /* UIImage+Gravatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Gravatar.h"; sourceTree = "<group>"; };
+		9AC07B6A1BCF843500898527 /* UIImage+Gravatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Gravatar.m"; sourceTree = "<group>"; };
+		9AC07B6C1BCF856C00898527 /* UIImage+GravatarTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GravatarTestCase.m"; sourceTree = "<group>"; };
 		D08894C34BEF91612BD08F5C /* libPods-BlocQuery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlocQuery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE581D9C49A30C10ADA916FB /* Pods-BlocQuery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlocQuery.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlocQuery/Pods-BlocQuery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +182,8 @@
 		9A00081E1BCD650600EECA2A /* BlocQuery */ = {
 			isa = PBXGroup;
 			children = (
+				9AC07B5A1BCF639700898527 /* UI */,
+				9AC07B4B1BCF419E00898527 /* Domain */,
 				9A0008701BCDB49900EECA2A /* Error */,
 				9A00086C1BCDAF0300EECA2A /* Service */,
 				9A0008641BCD9F5F00EECA2A /* Constant */,
@@ -167,6 +199,7 @@
 				9A0008301BCD650600EECA2A /* LaunchScreen.storyboard */,
 				9A00082B1BCD650600EECA2A /* Main.storyboard */,
 				9A00084A1BCD78A600EECA2A /* Login.storyboard */,
+				9AC07B551BCF5E5E00898527 /* Question.storyboard */,
 				9A0008661BCDA26700EECA2A /* Shared.storyboard */,
 				9A00082E1BCD650600EECA2A /* Assets.xcassets */,
 				9A0008331BCD650600EECA2A /* Info.plist */,
@@ -190,6 +223,8 @@
 				9A00083C1BCD650600EECA2A /* BlocQueryTests.m */,
 				9A00083E1BCD650600EECA2A /* Info.plist */,
 				9A00085D1BCD97E800EECA2A /* NSString+ValidatorTestCase.m */,
+				9AC07B671BCF831D00898527 /* NSString+HashTestCase.m */,
+				9AC07B6C1BCF856C00898527 /* UIImage+GravatarTestCase.m */,
 			);
 			path = BlocQueryTests;
 			sourceTree = "<group>";
@@ -205,6 +240,10 @@
 				9A00086A1BCDA47C00EECA2A /* UIFont+BQFont.m */,
 				9A0008771BCDC47C00EECA2A /* NSError+BQError.h */,
 				9A0008781BCDC47C00EECA2A /* NSError+BQError.m */,
+				9AC07B641BCF82B100898527 /* NSString+Hash.h */,
+				9AC07B651BCF82B100898527 /* NSString+Hash.m */,
+				9AC07B691BCF843500898527 /* UIImage+Gravatar.h */,
+				9AC07B6A1BCF843500898527 /* UIImage+Gravatar.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -218,6 +257,10 @@
 				9A0008581BCD877C00EECA2A /* LoginFormController.m */,
 				9A00087A1BCDC79000EECA2A /* SignupFormController.h */,
 				9A00087B1BCDC79000EECA2A /* SignupFormController.m */,
+				9AC07B571BCF5F9B00898527 /* BQQuestionViewController.h */,
+				9AC07B581BCF5F9B00898527 /* BQQuestionViewController.m */,
+				9AC07B5E1BCF700500898527 /* AskViewController.h */,
+				9AC07B5F1BCF700500898527 /* AskViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -230,6 +273,8 @@
 				9A0008621BCD9C7200EECA2A /* LoginFormValidator.m */,
 				9A0008741BCDC3BC00EECA2A /* SignupFormValidator.h */,
 				9A0008751BCDC3BC00EECA2A /* SignupFormValidator.m */,
+				9AC07B611BCF7B8D00898527 /* QuestionFormValidator.h */,
+				9AC07B621BCF7B8D00898527 /* QuestionFormValidator.m */,
 			);
 			name = Validator;
 			sourceTree = "<group>";
@@ -260,6 +305,26 @@
 				9A0008721BCDB4AE00EECA2A /* ParseErrorHandler.m */,
 			);
 			name = Error;
+			sourceTree = "<group>";
+		};
+		9AC07B4B1BCF419E00898527 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				9AC07B4C1BCF422D00898527 /* BQQuestion.h */,
+				9AC07B4D1BCF422D00898527 /* BQQuestion.m */,
+				9AC07B4F1BCF447900898527 /* BQAnswer.h */,
+				9AC07B501BCF447A00898527 /* BQAnswer.m */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		9AC07B5A1BCF639700898527 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9AC07B5B1BCF63B900898527 /* QuestionTableViewCell.h */,
+				9AC07B5C1BCF63B900898527 /* QuestionTableViewCell.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +412,7 @@
 			files = (
 				9A00084B1BCD78A600EECA2A /* Login.storyboard in Resources */,
 				9A0008671BCDA26700EECA2A /* Shared.storyboard in Resources */,
+				9AC07B561BCF5E5E00898527 /* Question.storyboard in Resources */,
 				9A0008321BCD650600EECA2A /* LaunchScreen.storyboard in Resources */,
 				9A00082F1BCD650600EECA2A /* Assets.xcassets in Resources */,
 				9A00082D1BCD650600EECA2A /* Main.storyboard in Resources */,
@@ -417,14 +483,22 @@
 			files = (
 				9A0008631BCD9C7200EECA2A /* LoginFormValidator.m in Sources */,
 				9A0008731BCDB4AE00EECA2A /* ParseErrorHandler.m in Sources */,
+				9AC07B4E1BCF422D00898527 /* BQQuestion.m in Sources */,
+				9AC07B661BCF82B100898527 /* NSString+Hash.m in Sources */,
 				9A00085C1BCD95A800EECA2A /* NSString+Validator.m in Sources */,
+				9AC07B601BCF700500898527 /* AskViewController.m in Sources */,
+				9AC07B511BCF447A00898527 /* BQAnswer.m in Sources */,
+				9AC07B591BCF5F9B00898527 /* BQQuestionViewController.m in Sources */,
 				9A0008241BCD650600EECA2A /* AppDelegate.m in Sources */,
 				9A00086F1BCDAF1A00EECA2A /* ParseService.m in Sources */,
+				9AC07B631BCF7B8D00898527 /* QuestionFormValidator.m in Sources */,
 				9A0008521BCD794800EECA2A /* UIColor+BQColor.m in Sources */,
 				9A0008561BCD7DB400EECA2A /* LoginViewController.m in Sources */,
+				9AC07B6B1BCF843500898527 /* UIImage+Gravatar.m in Sources */,
 				9A0008271BCD650600EECA2A /* MasterViewController.m in Sources */,
 				9A00086B1BCDA47C00EECA2A /* UIFont+BQFont.m in Sources */,
 				9A0008211BCD650600EECA2A /* main.m in Sources */,
+				9AC07B5D1BCF63B900898527 /* QuestionTableViewCell.m in Sources */,
 				9A00082A1BCD650600EECA2A /* DetailViewController.m in Sources */,
 				9A0008791BCDC47C00EECA2A /* NSError+BQError.m in Sources */,
 				9A00087C1BCDC79000EECA2A /* SignupFormController.m in Sources */,
@@ -438,7 +512,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A00085E1BCD97E800EECA2A /* NSString+ValidatorTestCase.m in Sources */,
+				9AC07B6D1BCF856C00898527 /* UIImage+GravatarTestCase.m in Sources */,
 				9A00083D1BCD650600EECA2A /* BlocQueryTests.m in Sources */,
+				9AC07B681BCF831D00898527 /* NSString+HashTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

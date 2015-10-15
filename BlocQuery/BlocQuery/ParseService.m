@@ -8,6 +8,7 @@
 
 #import "ParseService.h"
 #import "ParseErrorHandler.h"
+#import "BQQuestion.h"
 
 @implementation ParseService
 
@@ -61,6 +62,27 @@
                                                 callback(user, localizedError);
                                             }
                                         }
+    }];
+}
+
+- (void) createQuestionWithForm:(NSDictionary *)form
+                          block:(void (^)(BOOL succeeded, NSError *error))callback {
+    BQQuestion *question = [BQQuestion objectWithClassName:NSStringFromClass([BQQuestion class])];
+    question.author = [PFUser currentUser];
+    question.text = form[@"text"];
+    question.answers = [NSArray array];
+    [question saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (callback) {
+            if (succeeded) {
+                callback(succeeded, error);
+            } else {
+                NSDictionary *userInfo = [[ParseErrorHandler handler] handlesError:error inContext:nil];
+                NSError *localizedError = [NSError errorWithDomain:BQParseSubmitQuestionErrorDomain
+                                                              code:-1
+                                                          userInfo:userInfo];
+                callback(succeeded, localizedError);
+            }
+        }
     }];
 }
 

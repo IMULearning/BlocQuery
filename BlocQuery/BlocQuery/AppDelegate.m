@@ -32,7 +32,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedIn) name:BQUserLoggedInNotification object:nil];
     
     if ([PFUser currentUser]) {
-        self.window.rootViewController = [self mainController];
+        self.window.rootViewController = [self questionController];
     } else {
         self.window.rootViewController = [self loginViewController];
     }
@@ -85,6 +85,11 @@
     UISplitViewController *splitVC = [storyboard instantiateViewControllerWithIdentifier:@"MainSplitViewController"];
     return splitVC;
     
+}
+
+- (UIViewController *) questionController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Question" bundle:nil];
+    return [storyboard instantiateViewControllerWithIdentifier:@"QuestionViewController"];
 }
 
 - (void) userLoggedIn {

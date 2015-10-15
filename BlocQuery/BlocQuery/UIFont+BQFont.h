@@ -12,4 +12,6 @@
 
 + (UIFont *) defaultAppFontWithSize:(CGFloat) size;
 
++ (UIFont *) defaultAppBoldFontWithSize:(CGFloat) size;
+
 @end

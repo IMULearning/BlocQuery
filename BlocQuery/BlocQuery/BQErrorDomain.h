@@ -11,8 +11,10 @@
 
 #define BQLoginFormaValidationErrorDomain @"BQLoginFormaValidationErrorDomain"
 #define BQSignupFormValidationErrorDomain @"BQSignupFormValidationErrorDomain"
+#define BQQuestionFormValidationErrorDomain @"BQQuestionFormValidationErrorDomain"
 #define BQParseDefaultErrorDomain @"BQParseDefaultErrorDomain"
 #define BQParseLoginErrorDomain @"BQParseLoginErrorDomain"
 #define BQParseRegisterErrorDomain @"BQParseRegisterErrorDomain"
+#define BQParseSubmitQuestionErrorDomain @"BQParseSubmitQuestionErrorDomain"
 
 #endif /* BQErrorDomain_h */

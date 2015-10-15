@@ -11,7 +11,11 @@
 @implementation UIFont (BQFont)
 
 + (UIFont *) defaultAppFontWithSize:(CGFloat) size {
-    return [UIFont fontWithName:@"Apple SD Gothic Neo" size:size];
+    return [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:size];
+}
+
++ (UIFont *) defaultAppBoldFontWithSize:(CGFloat) size {
+    return [UIFont fontWithName:@"AppleSDGothicNeo-Bold" size:size];
 }
 
 @end

@@ -18,4 +18,6 @@
 
 + (NSDictionary *) lastNameNullErrorUserInfo;
 
++ (NSDictionary *) textInsufficientLengthUserInfo:(NSUInteger)expectedLength;
+
 @end

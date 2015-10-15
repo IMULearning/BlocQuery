@@ -42,4 +42,13 @@
              };
 }
 
++ (NSDictionary *) textInsufficientLengthUserInfo:(NSUInteger)expectedLength {
+    NSString *recovery = [NSString stringWithFormat:@"Please provide a question of at least %ld characters.", expectedLength];
+    return @{
+             NSLocalizedDescriptionKey: NSLocalizedString(@"Text validation failed", nil),
+             NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Insufficient length", nil),
+             NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(recovery, nil)
+             };
+}
+
 @end

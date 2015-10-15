@@ -2,8 +2,10 @@ platform :ios, '8.0'
 
 target 'BlocQuery' do
   pod 'Parse'
+  pod 'ParseUI'
   pod 'MBProgressHUD', '~> 0.9.1'
   pod 'Underscore.m'
+  pod 'FontAwesomeKit/FontAwesome'
 end
 
 target 'BlocQueryTests' do
