@@ -99,7 +99,7 @@
 - (void) keyboardWillShow:(NSNotification *)notification {
     CGRect keyboardFrame = [[[notification userInfo] objectForKey: UIKeyboardFrameEndUserInfoKey] CGRectValue];
     UIEdgeInsets insets = self.questionTextView.contentInset;
-    insets.bottom = keyboardFrame.size.height;
+    insets.bottom = keyboardFrame.size.height - self.topLayoutGuide.length;
     [self.questionTextView setContentInset: insets];
     [self.questionTextView setScrollIndicatorInsets: insets];
 }
