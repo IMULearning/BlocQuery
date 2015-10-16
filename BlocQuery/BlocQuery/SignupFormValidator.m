@@ -8,6 +8,7 @@
 
 #import "SignupFormValidator.h"
 #import "NSString+Validator.h"
+#import "ErrorHandler.h"
 
 @implementation SignupFormValidator
 
@@ -30,52 +31,28 @@
     
     if (![email isValidEmailWithStrictFilter:NO]) {
         isValid = NO;
-        [localErrors addObject:[self emailInvalidError]];
+        [localErrors addObject:[NSError blocQueryErrorWithCode:BQError_InvalidEmail context:nil params:nil]];
     }
     
     if (![password isValidPassword]) {
         isValid = NO;
-        [localErrors addObject:[self passwordInvalidError]];
+        [localErrors addObject:[NSError blocQueryErrorWithCode:BQError_InvalidPassword context:nil params:nil]];
     }
     
     if ([firstName length] == 0) {
         isValid = NO;
-        [localErrors addObject:[self firstNameNullError]];
+        [localErrors addObject:[NSError blocQueryErrorWithCode:BQError_InvalidFirstName context:nil params:nil]];
     }
     
     if ([lastName length] == 0) {
         isValid = NO;
-        [localErrors addObject:[self lastNameNullError]];
+        [localErrors addObject:[NSError blocQueryErrorWithCode:BQError_InvalidLastName context:nil params:nil]];
     }
     
     if (!isValid)
         *errors = localErrors;
     
     return isValid;
-}
-
-- (NSError *) emailInvalidError {
-    return [NSError errorWithDomain:BQSignupFormValidationErrorDomain
-                               code:-1
-                           userInfo:[NSError emailInvalidErrorUserInfo]];
-}
-
-- (NSError *) passwordInvalidError {
-    return [NSError errorWithDomain:BQSignupFormValidationErrorDomain
-                               code:-1
-                           userInfo:[NSError passwordInvalidErrorUserInfo]];
-}
-
-- (NSError *) firstNameNullError {
-    return [NSError errorWithDomain:BQSignupFormValidationErrorDomain
-                               code:-1
-                           userInfo:[NSError firstNameNullErrorUserInfo]];
-}
-
-- (NSError *) lastNameNullError {
-    return [NSError errorWithDomain:BQSignupFormValidationErrorDomain
-                               code:-1
-                           userInfo:[NSError lastNameNullErrorUserInfo]];
 }
 
 @end

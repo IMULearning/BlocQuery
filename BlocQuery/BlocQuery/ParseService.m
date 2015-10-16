@@ -7,7 +7,7 @@
 //
 
 #import "ParseService.h"
-#import "ParseErrorHandler.h"
+#import "ErrorHandler.h"
 #import "BQQuestion.h"
 
 @implementation ParseService
@@ -36,11 +36,7 @@
             if (succeeded) {
                 callback(succeeded, error);
             } else {
-                NSDictionary *userInfo = [[ParseErrorHandler handler] handlesError:error inContext:nil];
-                NSError *localizedError = [NSError errorWithDomain:BQParseRegisterErrorDomain
-                                                              code:-1
-                                                          userInfo:userInfo];
-                callback(succeeded, localizedError);
+                callback(succeeded, [NSError blocQueryErrorFromError:error withCode:BQError_SignupFailed context:nil params:nil]);
             }
         }
     }];
@@ -55,11 +51,7 @@
                                             if (user) {
                                                 callback(user, error);
                                             } else {
-                                                NSDictionary *userInfo = [[ParseErrorHandler handler] handlesError:error inContext:@"login"];
-                                                NSError *localizedError = [NSError errorWithDomain:BQParseLoginErrorDomain
-                                                                                              code:-1
-                                                                                          userInfo:userInfo];
-                                                callback(user, localizedError);
+                                                callback(user, [NSError blocQueryErrorFromError:error withCode:BQError_LoginFailed context:@"login" params:nil]);
                                             }
                                         }
     }];
@@ -76,11 +68,7 @@
             if (succeeded) {
                 callback(succeeded, error);
             } else {
-                NSDictionary *userInfo = [[ParseErrorHandler handler] handlesError:error inContext:nil];
-                NSError *localizedError = [NSError errorWithDomain:BQParseSubmitQuestionErrorDomain
-                                                              code:-1
-                                                          userInfo:userInfo];
-                callback(succeeded, localizedError);
+                callback(succeeded, [NSError blocQueryErrorFromError:error withCode:BQError_CreateQuestionFailed context:nil params:nil]);
             }
         }
     }];

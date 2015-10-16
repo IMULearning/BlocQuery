@@ -1,27 +1,27 @@
 //
-//  ParseErrorHandler.m
+//  BQErrorHandler.m
 //  BlocQuery
 //
-//  Created by Weinan Qiu on 2015-10-13.
+//  Created by Weinan Qiu on 2015-10-16.
 //  Copyright © 2015 Kumiq. All rights reserved.
 //
 
-#import "ParseErrorHandler.h"
+#import "BQErrorHandler.h"
 #import <GRMustache/GRMustache.h>
 
-@interface ParseErrorHandler ()
+@interface BQErrorHandler ()
 
 @property (nonatomic, strong) NSDictionary *mapping;
 
 @end
 
-@implementation ParseErrorHandler
+@implementation BQErrorHandler
 
-+ (instancetype) handler {
++ (instancetype)handler {
     static dispatch_once_t onceToken;
     static id instance;
     dispatch_once(&onceToken, ^{
-        instance = [[ParseErrorHandler alloc] init];
+        instance = [[BQErrorHandler alloc] init];
     });
     return instance;
 }
@@ -31,19 +31,19 @@
     if (self) {
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Error" ofType:@"plist"];
         NSDictionary *errorDictionary = [NSDictionary dictionaryWithContentsOfFile:filePath];
-        _mapping = errorDictionary[PFParseErrorDomain];
+        _mapping = errorDictionary[BQErrorDomain];
     }
     return self;
 }
 
 - (BOOL)handlesDomain:(NSString *)errorDomain {
-    return [errorDomain isEqualToString:PFParseErrorDomain];
+    return [errorDomain isEqualToString:BQErrorDomain];
 }
 
-- (NSDictionary *)resolveUserInfoForError:(NSError *)parseError inContext:(NSString *)context withParams:(NSDictionary *)params {
-    NSDictionary *errorDict = self.mapping[[NSString stringWithFormat:@"%d:%@", parseError.code, context ? context : @"*"]];
+- (NSDictionary *)resolveUserInfoForError:(NSError *)error inContext:(NSString *)context withParams:(NSDictionary *)params {
+    NSDictionary *errorDict = self.mapping[[NSString stringWithFormat:@"%d:%@", error.code, context ? context : @"*"]];
+    NSString *recovery = [GRMustacheTemplate renderObject:params fromString:NSLocalizedString(errorDict[@"recovery"], nil) error:nil];
     if (errorDict) {
-        NSString *recovery = [GRMustacheTemplate renderObject:params fromString:NSLocalizedString(errorDict[@"recovery"], nil) error:nil];
         return @{
                  NSLocalizedDescriptionKey: NSLocalizedString(errorDict[@"description"], nil),
                  NSLocalizedFailureReasonErrorKey: NSLocalizedString(errorDict[@"reason"], nil),

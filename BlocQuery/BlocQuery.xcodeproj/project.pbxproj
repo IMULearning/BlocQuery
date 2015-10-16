@@ -30,6 +30,9 @@
 		9A0008761BCDC3BC00EECA2A /* SignupFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0008751BCDC3BC00EECA2A /* SignupFormValidator.m */; settings = {ASSET_TAGS = (); }; };
 		9A0008791BCDC47C00EECA2A /* NSError+BQError.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0008781BCDC47C00EECA2A /* NSError+BQError.m */; settings = {ASSET_TAGS = (); }; };
 		9A00087C1BCDC79000EECA2A /* SignupFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A00087B1BCDC79000EECA2A /* SignupFormController.m */; settings = {ASSET_TAGS = (); }; };
+		9A1DBDCD1BD18C7C007A4803 /* Error.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A1DBDCC1BD18C7C007A4803 /* Error.plist */; settings = {ASSET_TAGS = (); }; };
+		9A1DBDD11BD1903C007A4803 /* BQErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DBDD01BD1903C007A4803 /* BQErrorHandler.m */; settings = {ASSET_TAGS = (); }; };
+		9A1DBDD41BD1934E007A4803 /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DBDD31BD1934E007A4803 /* ErrorHandler.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B4E1BCF422D00898527 /* BQQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B4D1BCF422D00898527 /* BQQuestion.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B511BCF447A00898527 /* BQAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B501BCF447A00898527 /* BQAnswer.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B561BCF5E5E00898527 /* Question.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC07B551BCF5E5E00898527 /* Question.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -84,7 +87,7 @@
 		9A0008601BCD9BD200EECA2A /* FormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidator.h; sourceTree = "<group>"; };
 		9A0008611BCD9C7200EECA2A /* LoginFormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginFormValidator.h; sourceTree = "<group>"; };
 		9A0008621BCD9C7200EECA2A /* LoginFormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginFormValidator.m; sourceTree = "<group>"; };
-		9A0008651BCD9F7F00EECA2A /* BQErrorDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQErrorDomain.h; sourceTree = "<group>"; };
+		9A0008651BCD9F7F00EECA2A /* BQErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQErrorCode.h; sourceTree = "<group>"; };
 		9A0008661BCDA26700EECA2A /* Shared.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Shared.storyboard; sourceTree = "<group>"; };
 		9A0008681BCDA3F800EECA2A /* BQConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQConstant.h; sourceTree = "<group>"; };
 		9A0008691BCDA47C00EECA2A /* UIFont+BQFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+BQFont.h"; sourceTree = "<group>"; };
@@ -100,6 +103,12 @@
 		9A00087A1BCDC79000EECA2A /* SignupFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupFormController.h; sourceTree = "<group>"; };
 		9A00087B1BCDC79000EECA2A /* SignupFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupFormController.m; sourceTree = "<group>"; };
 		9A00087D1BCDE40700EECA2A /* BQNotificationName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQNotificationName.h; sourceTree = "<group>"; };
+		9A1DBDCC1BD18C7C007A4803 /* Error.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Error.plist; sourceTree = "<group>"; };
+		9A1DBDCE1BD18E9B007A4803 /* ErrorHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorHandling.h; sourceTree = "<group>"; };
+		9A1DBDCF1BD1903C007A4803 /* BQErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQErrorHandler.h; sourceTree = "<group>"; };
+		9A1DBDD01BD1903C007A4803 /* BQErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQErrorHandler.m; sourceTree = "<group>"; };
+		9A1DBDD21BD1934E007A4803 /* ErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorHandler.h; sourceTree = "<group>"; };
+		9A1DBDD31BD1934E007A4803 /* ErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorHandler.m; sourceTree = "<group>"; };
 		9AC07B4C1BCF422D00898527 /* BQQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQQuestion.h; sourceTree = "<group>"; };
 		9AC07B4D1BCF422D00898527 /* BQQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQQuestion.m; sourceTree = "<group>"; };
 		9AC07B4F1BCF447900898527 /* BQAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQAnswer.h; sourceTree = "<group>"; };
@@ -182,6 +191,7 @@
 		9A00081E1BCD650600EECA2A /* BlocQuery */ = {
 			isa = PBXGroup;
 			children = (
+				9A1DBDCB1BD18BDE007A4803 /* Resource */,
 				9AC07B5A1BCF639700898527 /* UI */,
 				9AC07B4B1BCF419E00898527 /* Domain */,
 				9A0008701BCDB49900EECA2A /* Error */,
@@ -196,13 +206,8 @@
 				9A0008261BCD650600EECA2A /* MasterViewController.m */,
 				9A0008281BCD650600EECA2A /* DetailViewController.h */,
 				9A0008291BCD650600EECA2A /* DetailViewController.m */,
-				9A0008301BCD650600EECA2A /* LaunchScreen.storyboard */,
-				9A00082B1BCD650600EECA2A /* Main.storyboard */,
-				9A00084A1BCD78A600EECA2A /* Login.storyboard */,
-				9AC07B551BCF5E5E00898527 /* Question.storyboard */,
-				9A0008661BCDA26700EECA2A /* Shared.storyboard */,
+				9A1DBDCA1BD18BBF007A4803 /* Storyboard */,
 				9A00082E1BCD650600EECA2A /* Assets.xcassets */,
-				9A0008331BCD650600EECA2A /* Info.plist */,
 				9A00081F1BCD650600EECA2A /* Supporting Files */,
 				9A0008471BCD6BBE00EECA2A /* PrefixHeader.pch */,
 			);
@@ -282,7 +287,7 @@
 		9A0008641BCD9F5F00EECA2A /* Constant */ = {
 			isa = PBXGroup;
 			children = (
-				9A0008651BCD9F7F00EECA2A /* BQErrorDomain.h */,
+				9A0008651BCD9F7F00EECA2A /* BQErrorCode.h */,
 				9A0008681BCDA3F800EECA2A /* BQConstant.h */,
 				9A00087D1BCDE40700EECA2A /* BQNotificationName.h */,
 			);
@@ -303,8 +308,34 @@
 			children = (
 				9A0008711BCDB4AE00EECA2A /* ParseErrorHandler.h */,
 				9A0008721BCDB4AE00EECA2A /* ParseErrorHandler.m */,
+				9A1DBDCE1BD18E9B007A4803 /* ErrorHandling.h */,
+				9A1DBDCF1BD1903C007A4803 /* BQErrorHandler.h */,
+				9A1DBDD01BD1903C007A4803 /* BQErrorHandler.m */,
+				9A1DBDD21BD1934E007A4803 /* ErrorHandler.h */,
+				9A1DBDD31BD1934E007A4803 /* ErrorHandler.m */,
 			);
 			name = Error;
+			sourceTree = "<group>";
+		};
+		9A1DBDCA1BD18BBF007A4803 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9A0008301BCD650600EECA2A /* LaunchScreen.storyboard */,
+				9A00082B1BCD650600EECA2A /* Main.storyboard */,
+				9A00084A1BCD78A600EECA2A /* Login.storyboard */,
+				9AC07B551BCF5E5E00898527 /* Question.storyboard */,
+				9A0008661BCDA26700EECA2A /* Shared.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		9A1DBDCB1BD18BDE007A4803 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9A0008331BCD650600EECA2A /* Info.plist */,
+				9A1DBDCC1BD18C7C007A4803 /* Error.plist */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 		9AC07B4B1BCF419E00898527 /* Domain */ = {
@@ -415,6 +446,7 @@
 				9AC07B561BCF5E5E00898527 /* Question.storyboard in Resources */,
 				9A0008321BCD650600EECA2A /* LaunchScreen.storyboard in Resources */,
 				9A00082F1BCD650600EECA2A /* Assets.xcassets in Resources */,
+				9A1DBDCD1BD18C7C007A4803 /* Error.plist in Resources */,
 				9A00082D1BCD650600EECA2A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +519,7 @@
 				9AC07B661BCF82B100898527 /* NSString+Hash.m in Sources */,
 				9A00085C1BCD95A800EECA2A /* NSString+Validator.m in Sources */,
 				9AC07B601BCF700500898527 /* AskViewController.m in Sources */,
+				9A1DBDD11BD1903C007A4803 /* BQErrorHandler.m in Sources */,
 				9AC07B511BCF447A00898527 /* BQAnswer.m in Sources */,
 				9AC07B591BCF5F9B00898527 /* BQQuestionViewController.m in Sources */,
 				9A0008241BCD650600EECA2A /* AppDelegate.m in Sources */,
@@ -494,6 +527,7 @@
 				9AC07B631BCF7B8D00898527 /* QuestionFormValidator.m in Sources */,
 				9A0008521BCD794800EECA2A /* UIColor+BQColor.m in Sources */,
 				9A0008561BCD7DB400EECA2A /* LoginViewController.m in Sources */,
+				9A1DBDD41BD1934E007A4803 /* ErrorHandler.m in Sources */,
 				9AC07B6B1BCF843500898527 /* UIImage+Gravatar.m in Sources */,
 				9A0008271BCD650600EECA2A /* MasterViewController.m in Sources */,
 				9A00086B1BCDA47C00EECA2A /* UIFont+BQFont.m in Sources */,

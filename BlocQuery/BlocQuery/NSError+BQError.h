@@ -10,14 +10,15 @@
 
 @interface NSError (BQError)
 
-+ (NSDictionary *) emailInvalidErrorUserInfo;
++ (NSDictionary *) defaultErrorUserInfo;
 
-+ (NSDictionary *) passwordInvalidErrorUserInfo;
++ (NSError *) blocQueryErrorWithCode:(NSInteger)errorCode
+                             context:(NSString *)context
+                              params:(NSDictionary *)params;
 
-+ (NSDictionary *) firstNameNullErrorUserInfo;
-
-+ (NSDictionary *) lastNameNullErrorUserInfo;
-
-+ (NSDictionary *) textInsufficientLengthUserInfo:(NSUInteger)expectedLength;
++ (NSError *) blocQueryErrorFromError:(NSError *)error
+                             withCode:(NSInteger)errorCode
+                              context:(NSString *)context
+                               params:(NSDictionary *)params;
 
 @end

@@ -26,19 +26,13 @@
     
     if ([text length] < 20) {
         isValid = NO;
-        [localErrors addObject:[self insufficientLengthError]];
+        [localErrors addObject:[NSError blocQueryErrorWithCode:BQError_InvalidText context:nil params:@{@"count": @20}]];
     }
     
     if (!isValid)
         *errors = localErrors;
     
     return isValid;
-}
-
-- (NSError *) insufficientLengthError {
-    return [NSError errorWithDomain:BQQuestionFormValidationErrorDomain
-                               code:-1
-                           userInfo:[NSError textInsufficientLengthUserInfo:20]];
 }
 
 @end

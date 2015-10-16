@@ -8,6 +8,7 @@
 
 #import "LoginFormValidator.h"
 #import "NSString+Validator.h"
+#import "ErrorHandler.h"
 
 @implementation LoginFormValidator
 
@@ -27,19 +28,13 @@
     
     if (![email isValidEmailWithStrictFilter:NO]) {
         isValid = NO;
-        [localErrors addObject:[self emailInvalidError]];
+        [localErrors addObject:[NSError blocQueryErrorWithCode:BQError_InvalidEmail context:nil params:nil]];
     }
     
     if (!isValid)
         *errors = localErrors;
     
     return isValid;
-}
-
-- (NSError *) emailInvalidError {
-    return [NSError errorWithDomain:BQLoginFormaValidationErrorDomain
-                               code:-1
-                           userInfo:[NSError emailInvalidErrorUserInfo]];
 }
 
 @end

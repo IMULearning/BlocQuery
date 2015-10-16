@@ -17,7 +17,7 @@
 #import <Parse/Parse.h>
 #import <Underscore.h>
 #import "BQConstant.h"
-#import "BQErrorDomain.h"
+#import "BQErrorCode.h"
 #import "BQNotificationName.h"
 #import "ParseService.h"
 #import "NSError+BQError.h"

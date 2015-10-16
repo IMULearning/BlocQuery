@@ -43,9 +43,9 @@
     if (count == 0) {
         text = NSLocalizedString(@"No Answer", nil);
     } else if (count == 1) {
-        text = [[NSString stringWithFormat:@"%ld ", count] stringByAppendingString:NSLocalizedString(@"Answer", nil)];
+        text = [[NSString stringWithFormat:@"%uld ", count] stringByAppendingString:NSLocalizedString(@"Answer", nil)];
     } else {
-        text = [[NSString stringWithFormat:@"%ld ", count] stringByAppendingString:NSLocalizedString(@"Answers", nil)];
+        text = [[NSString stringWithFormat:@"%uld ", count] stringByAppendingString:NSLocalizedString(@"Answers", nil)];
     }
     self.answerCountLabel.text = text;
 }
