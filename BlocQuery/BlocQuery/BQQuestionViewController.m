@@ -25,6 +25,8 @@
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 10;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newQuestionCreated:) name:BQQuestionCreatedNotification object:nil];
     }
     return self;
 }
@@ -48,6 +50,14 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:BQQuestionCreatedNotification object:nil];
+}
+
+- (void)newQuestionCreated:(NSNotification *)notification {
+    [self loadObjects];
 }
 
 #pragma mark - UI

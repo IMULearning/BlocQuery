@@ -96,7 +96,7 @@
     [UIView transitionWithView:self.window duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
         BOOL oldState = [UIView areAnimationsEnabled];
         [UIView setAnimationsEnabled:NO];
-        self.window.rootViewController = [self mainController];
+        self.window.rootViewController = [self questionController];
         [UIView setAnimationsEnabled:oldState];
     } completion:nil];
 }
