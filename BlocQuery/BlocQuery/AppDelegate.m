@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailViewController.h"
 #import "LoginViewController.h"
 #import "ParseErrorHandler.h"
 
@@ -21,12 +20,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    // Override point for customization after application launch.
-//    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-//    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-//    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-//    splitViewController.delegate = self;
-    
     [self setupParse];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedIn) name:BQUserLoggedInNotification object:nil];
@@ -38,7 +31,6 @@
     }
     
     [self.window makeKeyAndVisible];
-    //[self.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
     
     return YES;
 }

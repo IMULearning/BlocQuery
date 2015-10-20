@@ -24,10 +24,16 @@
 - (void)awakeFromNib {
     [self makeCircleAvartarImageView];
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:96]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNewAnswerNotification:) name:BQQuestionNewAnswerNotification object:nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UI
@@ -43,9 +49,9 @@
     if (count == 0) {
         text = NSLocalizedString(@"No Answer", nil);
     } else if (count == 1) {
-        text = [[NSString stringWithFormat:@"%uld ", count] stringByAppendingString:NSLocalizedString(@"Answer", nil)];
+        text = [[NSString stringWithFormat:@"%ld ", count] stringByAppendingString:NSLocalizedString(@"Answer", nil)];
     } else {
-        text = [[NSString stringWithFormat:@"%uld ", count] stringByAppendingString:NSLocalizedString(@"Answers", nil)];
+        text = [[NSString stringWithFormat:@"%ld ", count] stringByAppendingString:NSLocalizedString(@"Answers", nil)];
     }
     self.answerCountLabel.text = text;
 }
@@ -64,6 +70,12 @@
         self.questionLabel.text = _question.text;
         [self updateAnswerCountLabelWithCount:_question.answers.count];
         [self setAuthorAvartarWithEmail:[_question.author fetchIfNeeded].email];
+    }
+}
+
+- (void)didReceiveNewAnswerNotification:(NSNotification *)notification {
+    if ((BQQuestion *)notification.userInfo[@"question"] == self.question) {
+        [self updateAnswerCountLabelWithCount:self.question.answers.count];
     }
 }
 

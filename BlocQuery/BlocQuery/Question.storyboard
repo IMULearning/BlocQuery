@@ -64,6 +64,7 @@
                                     <outlet property="answerCountLabel" destination="ckG-ZF-qj5" id="VwT-8W-6m1"/>
                                     <outlet property="avartarImage" destination="sIM-nM-71e" id="7aP-a4-YPX"/>
                                     <outlet property="questionLabel" destination="v1X-Dt-9Bm" id="MqM-Kb-1af"/>
+                                    <segue destination="nmk-4c-NiM" kind="presentation" identifier="showAnswer" modalPresentationStyle="formSheet" id="tFd-NS-V6E"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -77,6 +78,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B78-cp-0b2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1731" y="556"/>
+        </scene>
+        <!--AnswerViewController-->
+        <scene sceneID="JE7-H4-kyg">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AnswerViewController" storyboardName="Answer" referencedIdentifier="AnswerViewController" id="nmk-4c-NiM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ec1-yc-Gxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2289.5" y="411"/>
         </scene>
         <!--Ask View Controller-->
         <scene sceneID="ugL-40-uzj">

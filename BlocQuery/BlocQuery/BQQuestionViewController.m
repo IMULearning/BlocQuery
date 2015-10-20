@@ -9,6 +9,7 @@
 #import "BQQuestionViewController.h"
 #import "BQQuestion.h"
 #import "QuestionTableViewCell.h"
+#import "BQAnswerViewController.h"
 #import <FontAwesomeKit/FAKFontAwesome.h>
 
 @interface BQQuestionViewController ()
@@ -95,18 +96,22 @@
 
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     QuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"questionCell" forIndexPath:indexPath];
+    
     cell.question = (BQQuestion *) object;
     return cell;
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"showAnswer"]) {
+        BQQuestion *question = (BQQuestion *)[self objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+        if (question) {
+            BQAnswerViewController *answerVC = [segue destinationViewController];
+            answerVC.question = question;
+        }
+    }
 }
-*/
+
 
 @end

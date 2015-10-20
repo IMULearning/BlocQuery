@@ -20,5 +20,6 @@
 #define BQError_SignupFailed 105
 #define BQError_LoginFailed 106
 #define BQError_CreateQuestionFailed 107
+#define BQError_CreateAnswerFailed 108
 
 #endif /* BQErrorDomain_h */

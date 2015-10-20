@@ -11,5 +11,6 @@
 
 #define BQUserLoggedInNotification @"BQUserLoggedInNotification"
 #define BQQuestionCreatedNotification @"BQQuestionCreatedNotification"
+#define BQQuestionNewAnswerNotification @"BQQuestionNewAnswerNotification"
 
 #endif /* BQNotificationName_h */

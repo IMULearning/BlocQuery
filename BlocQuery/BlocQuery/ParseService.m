@@ -9,6 +9,7 @@
 #import "ParseService.h"
 #import "ErrorHandler.h"
 #import "BQQuestion.h"
+#import "BQAnswer.h"
 
 @implementation ParseService
 
@@ -69,6 +70,23 @@
                 callback(succeeded, error);
             } else {
                 callback(succeeded, [NSError blocQueryErrorFromError:error withCode:BQError_CreateQuestionFailed context:nil params:nil]);
+            }
+        }
+    }];
+}
+
+- (void) createAnswer:(NSDictionary *)answerForm toQuestion:(BQQuestion *)question block:(void (^)(BOOL succeeded, NSError *error))callback {
+    BQAnswer *answer = [BQAnswer objectWithClassName:NSStringFromClass([BQAnswer class])];
+    answer.author = [PFUser currentUser];
+    answer.text = answerForm[@"text"];
+    answer.upVoters = [NSArray array];
+    question.answers = [question.answers arrayByAddingObject:answer];
+    [question saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (callback) {
+            if (succeeded) {
+                callback(succeeded, error);
+            } else {
+                callback(succeeded, [NSError blocQueryErrorFromError:error withCode:BQError_CreateAnswerFailed context:nil params:nil]);
             }
         }
     }];

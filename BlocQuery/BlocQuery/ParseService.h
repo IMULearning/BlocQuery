@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BQQuestion.h"
 
 @interface ParseService : NSObject
 
@@ -20,5 +21,7 @@
 
 - (void) createQuestionWithForm:(NSDictionary *)form
                           block:(void (^)(BOOL succeeded, NSError *error))callback;
+
+- (void) createAnswer:(NSDictionary *)answerForm toQuestion:(BQQuestion *)question block:(void (^)(BOOL succeeded, NSError *error))callback;
 
 @end
