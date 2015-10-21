@@ -38,6 +38,9 @@
 		9A5B114C1BD7F82100C8F6FF /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5B114B1BD7F82100C8F6FF /* Profile.storyboard */; settings = {ASSET_TAGS = (); }; };
 		9A5B114F1BD7F84500C8F6FF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B114E1BD7F84500C8F6FF /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9A5B11511BD7F9B300C8F6FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5B11501BD7F9B300C8F6FF /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		9A5B11541BD818F800C8F6FF /* ProfileEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11531BD818F800C8F6FF /* ProfileEditController.m */; settings = {ASSET_TAGS = (); }; };
+		9A5B11571BD82D6100C8F6FF /* EditProfileFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11561BD82D6100C8F6FF /* EditProfileFormValidator.m */; settings = {ASSET_TAGS = (); }; };
+		9A5B115A1BD8313D00C8F6FF /* EditBioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11591BD8313D00C8F6FF /* EditBioController.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B4E1BCF422D00898527 /* BQQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B4D1BCF422D00898527 /* BQQuestion.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B511BCF447A00898527 /* BQAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B501BCF447A00898527 /* BQAnswer.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B561BCF5E5E00898527 /* Question.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC07B551BCF5E5E00898527 /* Question.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -122,6 +125,12 @@
 		9A5B114D1BD7F84500C8F6FF /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		9A5B114E1BD7F84500C8F6FF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		9A5B11501BD7F9B300C8F6FF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9A5B11521BD818F800C8F6FF /* ProfileEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditController.h; sourceTree = "<group>"; };
+		9A5B11531BD818F800C8F6FF /* ProfileEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditController.m; sourceTree = "<group>"; };
+		9A5B11551BD82D6100C8F6FF /* EditProfileFormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileFormValidator.h; sourceTree = "<group>"; };
+		9A5B11561BD82D6100C8F6FF /* EditProfileFormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileFormValidator.m; sourceTree = "<group>"; };
+		9A5B11581BD8313D00C8F6FF /* EditBioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBioController.h; sourceTree = "<group>"; };
+		9A5B11591BD8313D00C8F6FF /* EditBioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBioController.m; sourceTree = "<group>"; };
 		9AC07B4C1BCF422D00898527 /* BQQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQQuestion.h; sourceTree = "<group>"; };
 		9AC07B4D1BCF422D00898527 /* BQQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQQuestion.m; sourceTree = "<group>"; };
 		9AC07B4F1BCF447900898527 /* BQAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQAnswer.h; sourceTree = "<group>"; };
@@ -281,6 +290,10 @@
 				9A1DBDE01BD6F31D007A4803 /* ComposeAnswerViewController.m */,
 				9A5B114D1BD7F84500C8F6FF /* ProfileViewController.h */,
 				9A5B114E1BD7F84500C8F6FF /* ProfileViewController.m */,
+				9A5B11521BD818F800C8F6FF /* ProfileEditController.h */,
+				9A5B11531BD818F800C8F6FF /* ProfileEditController.m */,
+				9A5B11581BD8313D00C8F6FF /* EditBioController.h */,
+				9A5B11591BD8313D00C8F6FF /* EditBioController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -297,6 +310,8 @@
 				9AC07B621BCF7B8D00898527 /* QuestionFormValidator.m */,
 				9A1DBDE21BD6F4BD007A4803 /* AnswerFormValidator.h */,
 				9A1DBDE31BD6F4BD007A4803 /* AnswerFormValidator.m */,
+				9A5B11551BD82D6100C8F6FF /* EditProfileFormValidator.h */,
+				9A5B11561BD82D6100C8F6FF /* EditProfileFormValidator.m */,
 			);
 			name = Validator;
 			sourceTree = "<group>";
@@ -536,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A5B11541BD818F800C8F6FF /* ProfileEditController.m in Sources */,
 				9A0008631BCD9C7200EECA2A /* LoginFormValidator.m in Sources */,
 				9A0008731BCDB4AE00EECA2A /* ParseErrorHandler.m in Sources */,
 				9AC07B4E1BCF422D00898527 /* BQQuestion.m in Sources */,
@@ -545,6 +561,7 @@
 				9A1DBDD11BD1903C007A4803 /* BQErrorHandler.m in Sources */,
 				9AC07B511BCF447A00898527 /* BQAnswer.m in Sources */,
 				9AC07B591BCF5F9B00898527 /* BQQuestionViewController.m in Sources */,
+				9A5B11571BD82D6100C8F6FF /* EditProfileFormValidator.m in Sources */,
 				9A0008241BCD650600EECA2A /* AppDelegate.m in Sources */,
 				9A00086F1BCDAF1A00EECA2A /* ParseService.m in Sources */,
 				9AC07B631BCF7B8D00898527 /* QuestionFormValidator.m in Sources */,
@@ -561,6 +578,7 @@
 				9AC07B5D1BCF63B900898527 /* QuestionTableViewCell.m in Sources */,
 				9A1DBDE41BD6F4BD007A4803 /* AnswerFormValidator.m in Sources */,
 				9A0008791BCDC47C00EECA2A /* NSError+BQError.m in Sources */,
+				9A5B115A1BD8313D00C8F6FF /* EditBioController.m in Sources */,
 				9A00087C1BCDC79000EECA2A /* SignupFormController.m in Sources */,
 				9A0008761BCDC3BC00EECA2A /* SignupFormValidator.m in Sources */,
 				9A0008591BCD877C00EECA2A /* LoginFormController.m in Sources */,

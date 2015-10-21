@@ -34,6 +34,7 @@
     [self.window makeKeyAndVisible];
     
     [[UITabBar appearance] setTintColor:[UIColor alizarinRed]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     return YES;
 }

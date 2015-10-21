@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "UIImage+Gravatar.h"
+#import "ProfileEditController.h"
 #import <FAKFontAwesome.h>
 
 @interface ProfileViewController ()
@@ -26,6 +27,8 @@
 - (void)awakeFromNib {
     self.navigationController.tabBarItem.title = NSLocalizedString(@"Profile", nil);
     self.navigationController.tabBarItem.image = [[FAKFontAwesome userIconWithSize:30] imageWithSize:CGSizeMake(30, 30)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userUpdated:) name:BQUserUpdatedNotification object:nil];
 }
 
 - (void)viewDidLoad {
@@ -40,6 +43,10 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UI
@@ -121,7 +128,10 @@
 #pragma mark - Button targets
 
 - (void) editButtonFired:(UIButton *)sender {
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Profile" bundle:nil];
+    ProfileEditController *editVC = [storyboard instantiateViewControllerWithIdentifier:@"ProfileEditController"];
+    editVC.user = self.user;
+    [self.navigationController pushViewController:editVC animated:YES];
 }
 
 - (void) exitButtonFired:(UIButton *)sender {
@@ -132,6 +142,16 @@
 
 - (PFUser *)user {
     return _user != nil ? _user : [PFUser currentUser];
+}
+
+#pragma mark - Notification
+
+- (void) userUpdated:(NSNotification *)notification {
+    PFUser *user = notification.userInfo[@"user"];
+    if ([user.email isEqualToString:self.user.email]) {
+        [self.user fetch];
+        [self updateUI];
+    }
 }
 
 /*

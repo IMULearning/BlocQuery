@@ -13,5 +13,6 @@
 #define BQQuestionCreatedNotification @"BQQuestionCreatedNotification"
 #define BQQuestionNewAnswerNotification @"BQQuestionNewAnswerNotification"
 #define BQPresentUserProfileNotification @"BQPresentUserProfileNotification"
+#define BQUserUpdatedNotification @"BQUserUpdatedNotification"
 
 #endif /* BQNotificationName_h */

@@ -73,6 +73,215 @@
             </objects>
             <point key="canvasLocation" x="1455" y="328"/>
         </scene>
+        <!--Profile Edit Controller-->
+        <scene sceneID="mYZ-Ns-hts">
+            <objects>
+                <viewController storyboardIdentifier="ProfileEditController" id="49m-Ut-eof" customClass="ProfileEditController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xTs-1a-x7Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="FHK-NX-EmL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ENR-Ap-5mX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basic Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ae1-kM-5RC">
+                                <rect key="frame" x="20" y="24" width="560" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="B7Q-cC-TBe">
+                                <rect key="frame" x="20" y="52" width="560" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RUe-cI-RvA">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sP3-LS-2kY">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="50"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V21-tv-qmQ">
+                                                        <rect key="frame" x="8" y="0.0" width="42" height="42"/>
+                                                        <animations/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="42" id="w9S-1n-UJX"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhD-Cg-WZK">
+                                                        <rect key="frame" x="58" y="0.0" width="494" height="42"/>
+                                                        <animations/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                        <state key="normal" title="Edit photo">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="editPhotoFired:" destination="49m-Ut-eof" eventType="touchUpInside" id="4aO-rm-ueo"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="V21-tv-qmQ" secondAttribute="bottom" constant="8" id="5GI-61-FMz"/>
+                                                    <constraint firstItem="V21-tv-qmQ" firstAttribute="leading" secondItem="sP3-LS-2kY" secondAttribute="leading" constant="8" id="6KQ-Fn-bgx"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wcg-5S-IrV">
+                                        <rect key="frame" x="0.0" y="50" width="560" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q81-lV-xvu">
+                                                <rect key="frame" x="0.0" y="15" width="78" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tell us your first name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V1R-ye-0FV">
+                                                <rect key="frame" x="86" y="15" width="475" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstItem="V1R-ye-0FV" firstAttribute="centerY" secondItem="q81-lV-xvu" secondAttribute="centerY" id="6dM-3a-35A"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rqa-Xz-Wgg">
+                                        <rect key="frame" x="0.0" y="100" width="560" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLx-Ks-qA4">
+                                                <rect key="frame" x="0.0" y="15" width="76" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tell us your last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m7S-qJ-vET">
+                                                <rect key="frame" x="84" y="15" width="476" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMI-BH-odK">
+                                        <rect key="frame" x="0.0" y="150" width="560" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffX-D7-igy">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="50"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                <state key="normal" title="Write your personal bio">
+                                                    <color key="titleColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="editBioFired:" destination="49m-Ut-eof" eventType="touchUpInside" id="5jb-lP-p4e"/>
+                                                    <segue destination="63w-gW-7Kt" kind="presentation" identifier="editBio" modalPresentationStyle="formSheet" id="rjU-17-3Jc"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Gyh-ft-jdL"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bj5-0F-oG0">
+                                <rect key="frame" x="512" y="261" width="68" height="34"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="tEO-8y-iQE"/>
+                                </constraints>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveFired:" destination="49m-Ut-eof" eventType="touchUpInside" id="Xr1-iI-cCL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="ae1-kM-5RC" secondAttribute="leading" id="C2j-nP-6IQ"/>
+                            <constraint firstItem="bj5-0F-oG0" firstAttribute="trailing" secondItem="ffX-D7-igy" secondAttribute="trailing" id="Cu9-c9-4N0"/>
+                            <constraint firstItem="bj5-0F-oG0" firstAttribute="top" secondItem="ffX-D7-igy" secondAttribute="bottom" constant="8" id="EXg-bi-fLR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ae1-kM-5RC" secondAttribute="trailing" id="FBa-sg-8Tj"/>
+                            <constraint firstItem="V21-tv-qmQ" firstAttribute="top" secondItem="xTs-1a-x7Q" secondAttribute="bottom" constant="33" id="HJZ-Sv-n2f"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="B7Q-cC-TBe" secondAttribute="leading" id="bKu-fg-LvA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B7Q-cC-TBe" secondAttribute="trailing" id="ggI-Pl-Wn7"/>
+                            <constraint firstItem="ae1-kM-5RC" firstAttribute="top" secondItem="xTs-1a-x7Q" secondAttribute="bottom" constant="4" id="wg9-3U-O7J"/>
+                            <constraint firstItem="B7Q-cC-TBe" firstAttribute="top" secondItem="ae1-kM-5RC" secondAttribute="bottom" constant="8" id="zMw-dB-hwJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="V21-tv-qmQ" id="IkI-nB-sPG"/>
+                        <outlet property="firstNameTextField" destination="V1R-ye-0FV" id="iyX-RM-eih"/>
+                        <outlet property="lastNameTextField" destination="m7S-qJ-vET" id="l4w-hx-e9F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rho-0Z-c7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="1024"/>
+        </scene>
+        <!--Edit Bio Controller-->
+        <scene sceneID="oXD-jR-TEm">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="wR8-b6-QwH" customClass="EditBioController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SDe-8M-ug7"/>
+                        <viewControllerLayoutGuide type="bottom" id="0vM-ZF-ZNw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6VV-gh-bsH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rYp-EW-zJK">
+                                <rect key="frame" x="20" y="52" width="560" height="540"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0vM-ZF-ZNw" firstAttribute="top" secondItem="rYp-EW-zJK" secondAttribute="bottom" constant="8" id="0FA-0n-nQ8"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="rYp-EW-zJK" secondAttribute="leading" id="HYA-Jx-LLs"/>
+                            <constraint firstItem="rYp-EW-zJK" firstAttribute="top" secondItem="SDe-8M-ug7" secondAttribute="bottom" constant="8" id="lWx-kp-yGY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rYp-EW-zJK" secondAttribute="trailing" id="ou7-qG-sDU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UPF-b0-hXi">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="OzV-gb-mY1">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelButtonFired:" destination="wR8-b6-QwH" id="kzF-8z-5PI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="RvR-ug-bST">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="saveButtonFired:" destination="wR8-b6-QwH" id="UVq-kW-JE1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bioTextView" destination="rYp-EW-zJK" id="ArE-Yx-msB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N8a-ld-Azv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2267" y="1720"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="da8-2o-gYQ">
             <objects>
@@ -92,6 +301,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mgf-lU-yfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="643" y="328"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JkA-e4-I56">
+            <objects>
+                <navigationController storyboardIdentifier="EditBioController" automaticallyAdjustsScrollViewInsets="NO" id="63w-gW-7Kt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PZI-Wn-Iy2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="barTintColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wR8-b6-QwH" kind="relationship" relationship="rootViewController" id="YId-6e-klQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TSR-7e-LoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="1720"/>
         </scene>
     </scenes>
 </document>

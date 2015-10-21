@@ -24,4 +24,6 @@
 
 - (void) createAnswer:(NSDictionary *)answerForm toQuestion:(BQQuestion *)question block:(void (^)(BOOL succeeded, NSError *error))callback;
 
+- (void) updateUser:(PFUser *)user withForm:(NSDictionary *)form block:(void (^)(BOOL succeeded, NSError *error))callback;
+
 @end

@@ -21,5 +21,6 @@
 #define BQError_LoginFailed 106
 #define BQError_CreateQuestionFailed 107
 #define BQError_CreateAnswerFailed 108
+#define BQError_UpdateUserFailed 109
 
 #endif /* BQErrorDomain_h */

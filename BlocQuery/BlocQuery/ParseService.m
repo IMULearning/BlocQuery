@@ -92,4 +92,23 @@
     }];
 }
 
+- (void) updateUser:(PFUser *)user withForm:(NSDictionary *)form block:(void (^)(BOOL succeeded, NSError *error))callback {
+    if (form[@"firstName"])
+        user[@"firstName"] = form[@"firstName"];
+    if (form[@"lastName"])
+        user[@"lastName"] = form[@"lastName"];
+    if (form[@"bio"])
+        user[@"bio"] = form[@"bio"];
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (callback) {
+            if (succeeded) {
+                callback(succeeded, error);
+                [[NSNotificationCenter defaultCenter] postNotificationName:BQUserUpdatedNotification object:nil userInfo:@{@"user": user}];
+            } else {
+                callback(succeeded, [NSError blocQueryErrorFromError:error withCode:BQError_UpdateUserFailed context:nil params:nil]);
+            }
+        }
+    }];
+}
+
 @end
