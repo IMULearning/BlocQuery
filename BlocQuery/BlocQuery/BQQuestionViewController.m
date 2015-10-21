@@ -10,6 +10,7 @@
 #import "BQQuestion.h"
 #import "QuestionTableViewCell.h"
 #import "BQAnswerViewController.h"
+#import "ProfileViewController.h"
 #import <FontAwesomeKit/FAKFontAwesome.h>
 
 @interface BQQuestionViewController ()
@@ -28,8 +29,14 @@
         self.objectsPerPage = 10;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newQuestionCreated:) name:BQQuestionCreatedNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentProfile:) name:BQPresentUserProfileNotification object:nil];
     }
     return self;
+}
+
+- (void)awakeFromNib {
+    self.navigationController.tabBarItem.title = NSLocalizedString(@"Home", nil);
+    self.navigationController.tabBarItem.image = [[FAKFontAwesome homeIconWithSize:30] imageWithSize:CGSizeMake(30, 30)];
 }
 
 - (void)viewDidLoad {
@@ -54,7 +61,7 @@
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:BQQuestionCreatedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)newQuestionCreated:(NSNotification *)notification {
@@ -92,6 +99,7 @@
     [self presentViewController:queryVC animated:YES completion:nil];
 }
 
+
 #pragma mark - Table view datasource
 
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
@@ -113,5 +121,14 @@
     }
 }
 
+- (void) presentProfile:(NSNotification *)notification {
+    PFUser *user = notification.userInfo[@"user"];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Profile" bundle:nil];
+    UINavigationController *navVC = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+    ProfileViewController *profileVC = navVC.viewControllers[0];
+    profileVC.user = user;
+    
+    [self presentViewController:navVC animated:YES completion:nil];
+}
 
 @end

@@ -35,6 +35,9 @@
 		9A1DBDDE1BD6E37C007A4803 /* AnswerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DBDDD1BD6E37C007A4803 /* AnswerTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		9A1DBDE11BD6F31D007A4803 /* ComposeAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DBDE01BD6F31D007A4803 /* ComposeAnswerViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9A1DBDE41BD6F4BD007A4803 /* AnswerFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DBDE31BD6F4BD007A4803 /* AnswerFormValidator.m */; settings = {ASSET_TAGS = (); }; };
+		9A5B114C1BD7F82100C8F6FF /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5B114B1BD7F82100C8F6FF /* Profile.storyboard */; settings = {ASSET_TAGS = (); }; };
+		9A5B114F1BD7F84500C8F6FF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B114E1BD7F84500C8F6FF /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9A5B11511BD7F9B300C8F6FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5B11501BD7F9B300C8F6FF /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		9AC07B4E1BCF422D00898527 /* BQQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B4D1BCF422D00898527 /* BQQuestion.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B511BCF447A00898527 /* BQAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B501BCF447A00898527 /* BQAnswer.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B561BCF5E5E00898527 /* Question.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC07B551BCF5E5E00898527 /* Question.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -115,6 +118,10 @@
 		9A1DBDE01BD6F31D007A4803 /* ComposeAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeAnswerViewController.m; sourceTree = "<group>"; };
 		9A1DBDE21BD6F4BD007A4803 /* AnswerFormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerFormValidator.h; sourceTree = "<group>"; };
 		9A1DBDE31BD6F4BD007A4803 /* AnswerFormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerFormValidator.m; sourceTree = "<group>"; };
+		9A5B114B1BD7F82100C8F6FF /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		9A5B114D1BD7F84500C8F6FF /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		9A5B114E1BD7F84500C8F6FF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		9A5B11501BD7F9B300C8F6FF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9AC07B4C1BCF422D00898527 /* BQQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQQuestion.h; sourceTree = "<group>"; };
 		9AC07B4D1BCF422D00898527 /* BQQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQQuestion.m; sourceTree = "<group>"; };
 		9AC07B4F1BCF447900898527 /* BQAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQAnswer.h; sourceTree = "<group>"; };
@@ -206,9 +213,9 @@
 				9A00085F1BCD9BB900EECA2A /* Validator */,
 				9A0008531BCD7D9B00EECA2A /* Controller */,
 				9A00084C1BCD790600EECA2A /* Category */,
+				9A1DBDCA1BD18BBF007A4803 /* Storyboard */,
 				9A0008221BCD650600EECA2A /* AppDelegate.h */,
 				9A0008231BCD650600EECA2A /* AppDelegate.m */,
-				9A1DBDCA1BD18BBF007A4803 /* Storyboard */,
 				9A00082E1BCD650600EECA2A /* Assets.xcassets */,
 				9A00081F1BCD650600EECA2A /* Supporting Files */,
 				9A0008471BCD6BBE00EECA2A /* PrefixHeader.pch */,
@@ -272,6 +279,8 @@
 				9A1DBDD81BD6C474007A4803 /* BQAnswerViewController.m */,
 				9A1DBDDF1BD6F31D007A4803 /* ComposeAnswerViewController.h */,
 				9A1DBDE01BD6F31D007A4803 /* ComposeAnswerViewController.m */,
+				9A5B114D1BD7F84500C8F6FF /* ProfileViewController.h */,
+				9A5B114E1BD7F84500C8F6FF /* ProfileViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -333,6 +342,8 @@
 				9AC07B551BCF5E5E00898527 /* Question.storyboard */,
 				9A0008661BCDA26700EECA2A /* Shared.storyboard */,
 				9A1DBDDA1BD6D4B4007A4803 /* Answer.storyboard */,
+				9A5B114B1BD7F82100C8F6FF /* Profile.storyboard */,
+				9A5B11501BD7F9B300C8F6FF /* Main.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -453,9 +464,11 @@
 			files = (
 				9A00084B1BCD78A600EECA2A /* Login.storyboard in Resources */,
 				9A0008671BCDA26700EECA2A /* Shared.storyboard in Resources */,
+				9A5B114C1BD7F82100C8F6FF /* Profile.storyboard in Resources */,
 				9AC07B561BCF5E5E00898527 /* Question.storyboard in Resources */,
 				9A0008321BCD650600EECA2A /* LaunchScreen.storyboard in Resources */,
 				9A1DBDDB1BD6D4B4007A4803 /* Answer.storyboard in Resources */,
+				9A5B11511BD7F9B300C8F6FF /* Main.storyboard in Resources */,
 				9A00082F1BCD650600EECA2A /* Assets.xcassets in Resources */,
 				9A1DBDCD1BD18C7C007A4803 /* Error.plist in Resources */,
 			);
@@ -541,6 +554,7 @@
 				9A0008561BCD7DB400EECA2A /* LoginViewController.m in Sources */,
 				9A1DBDDE1BD6E37C007A4803 /* AnswerTableViewCell.m in Sources */,
 				9A1DBDD41BD1934E007A4803 /* ErrorHandler.m in Sources */,
+				9A5B114F1BD7F84500C8F6FF /* ProfileViewController.m in Sources */,
 				9AC07B6B1BCF843500898527 /* UIImage+Gravatar.m in Sources */,
 				9A00086B1BCDA47C00EECA2A /* UIFont+BQFont.m in Sources */,
 				9A0008211BCD650600EECA2A /* main.m in Sources */,

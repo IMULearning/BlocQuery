@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "ParseErrorHandler.h"
+#import "UIColor+BQColor.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -25,12 +26,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedIn) name:BQUserLoggedInNotification object:nil];
     
     if ([PFUser currentUser]) {
-        self.window.rootViewController = [self questionController];
+        self.window.rootViewController = [self mainController];
     } else {
         self.window.rootViewController = [self loginViewController];
     }
     
     [self.window makeKeyAndVisible];
+    
+    [[UITabBar appearance] setTintColor:[UIColor alizarinRed]];
     
     return YES;
 }
@@ -74,8 +77,7 @@
 
 - (UIViewController *) mainController {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UISplitViewController *splitVC = [storyboard instantiateViewControllerWithIdentifier:@"MainSplitViewController"];
-    return splitVC;
+    return [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
     
 }
 
@@ -88,7 +90,7 @@
     [UIView transitionWithView:self.window duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
         BOOL oldState = [UIView areAnimationsEnabled];
         [UIView setAnimationsEnabled:NO];
-        self.window.rootViewController = [self questionController];
+        self.window.rootViewController = [self mainController];
         [UIView setAnimationsEnabled:oldState];
     } completion:nil];
 }

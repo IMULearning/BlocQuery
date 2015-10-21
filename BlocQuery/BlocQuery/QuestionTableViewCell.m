@@ -9,13 +9,14 @@
 #import "QuestionTableViewCell.h"
 #import <FontAwesomeKit/FAKFontAwesome.h>
 #import "UIImage+Gravatar.h"
+#import "ProfileViewController.h"
 
-@interface QuestionTableViewCell ()
+@interface QuestionTableViewCell () <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *answerCountLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *avartarImage;
-
+@property (strong, nonatomic) UITapGestureRecognizer *tapGesture;
 
 @end
 
@@ -24,6 +25,13 @@
 - (void)awakeFromNib {
     [self makeCircleAvartarImageView];
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:96]];
+
+    self.avartarImage.userInteractionEnabled = YES;
+    
+    self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAvartar)];
+    self.tapGesture.numberOfTapsRequired = 1;
+    [self.avartarImage addGestureRecognizer:self.tapGesture];
+    self.tapGesture.delegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNewAnswerNotification:) name:BQQuestionNewAnswerNotification object:nil];
 }
@@ -77,6 +85,12 @@
     if ((BQQuestion *)notification.userInfo[@"question"] == self.question) {
         [self updateAnswerCountLabelWithCount:self.question.answers.count];
     }
+}
+
+#pragma mark - Gesture
+
+- (void) didTapAvartar {
+    [[NSNotificationCenter defaultCenter] postNotificationName:BQPresentUserProfileNotification object:nil userInfo:@{@"user": self.question.author}];
 }
 
 @end

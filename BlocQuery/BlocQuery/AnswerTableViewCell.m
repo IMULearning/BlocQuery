@@ -9,12 +9,14 @@
 #import "AnswerTableViewCell.h"
 #import "UIImage+Gravatar.h"
 #import <FAKFontAwesome.h>
+#import "ProfileViewController.h"
 
-@interface AnswerTableViewCell ()
+@interface AnswerTableViewCell () <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *answerLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *authorImage;
 @property (weak, nonatomic) IBOutlet UILabel *upvoteCountLabel;
+@property (strong, nonatomic) UITapGestureRecognizer *tapGesture;
 
 @end
 
@@ -22,6 +24,13 @@
 
 - (void)awakeFromNib {
     [self makeCircleAuthorImageView];
+    
+    self.authorImage.userInteractionEnabled = YES;
+    
+    self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAvartar)];
+    self.tapGesture.numberOfTapsRequired = 1;
+    [self.authorImage addGestureRecognizer:self.tapGesture];
+    self.tapGesture.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -49,7 +58,7 @@
     } else if (self.answer.upVoters.count == 1) {
         text = NSLocalizedString(@"1 upvote", nil);
     } else {
-        text = [[NSString stringWithFormat:@"%ld ", self.answer.upVoters.count] stringByAppendingString:NSLocalizedString(@"upvotes", nil)];
+        text = [[NSString stringWithFormat:@"%d ", self.answer.upVoters.count] stringByAppendingString:NSLocalizedString(@"upvotes", nil)];
     }
     self.upvoteCountLabel.text = text;
 }
@@ -63,6 +72,12 @@
         [self updateAuthorImageWithEmail:[_answer.author fetchIfNeeded].email];
         [self updateUpvoteCountLabel];
     }
+}
+
+#pragma mark - Gesture
+
+- (void) didTapAvartar {
+    [[NSNotificationCenter defaultCenter] postNotificationName:BQPresentUserProfileNotification object:nil userInfo:@{@"user": self.answer.author}];
 }
 
 @end

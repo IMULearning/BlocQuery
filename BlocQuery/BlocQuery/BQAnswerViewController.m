@@ -9,6 +9,7 @@
 #import "BQAnswerViewController.h"
 #import "AnswerTableViewCell.h"
 #import "ComposeAnswerViewController.h"
+#import "ProfileViewController.h"
 #import <FAKFontAwesome.h>
 #import <MBProgressHUD.h>
 
@@ -31,6 +32,7 @@
     [self setupUI];
     [self setupTableView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSuccessfullyCreateAnswer:) name:BQQuestionNewAnswerNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentProfile:) name:BQPresentUserProfileNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,7 +84,7 @@
 #pragma mark - Button targets
 
 - (IBAction)exitButtonFired:(id)sender {
-    [self dismissViewControllerAnimated:self completion:nil];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)answerButtonFired:(id)sender {
@@ -115,6 +117,16 @@
         ComposeAnswerViewController *composeVC = (ComposeAnswerViewController *)navVC.viewControllers[0];
         composeVC.question = self.question;
     }
+}
+
+- (void) presentProfile:(NSNotification *)notification {
+    PFUser *user = notification.userInfo[@"user"];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Profile" bundle:nil];
+    UINavigationController *navVC = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+    ProfileViewController *profileVC = navVC.viewControllers[0];
+    profileVC.user = user;
+    
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 #pragma mark - ComposeAnswerViewController Notification

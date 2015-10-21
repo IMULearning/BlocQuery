@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="117"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3in-9L-BL3" id="dqQ-pl-2s8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="116.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="117"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1X-Dt-9Bm">
@@ -33,6 +33,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sIM-nM-71e">
                                             <rect key="frame" x="512" y="8" width="80" height="80"/>
                                             <animations/>
+                                            <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="4wU-sP-SVT"/>
                                                 <constraint firstAttribute="width" constant="80" id="J92-Ky-roi"/>
@@ -74,10 +75,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="m00-a2-yDO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B78-cp-0b2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1731" y="556"/>
+            <point key="canvasLocation" x="2543" y="556"/>
         </scene>
         <!--AnswerViewController-->
         <scene sceneID="JE7-H4-kyg">
@@ -85,7 +87,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="AnswerViewController" storyboardName="Answer" referencedIdentifier="AnswerViewController" id="nmk-4c-NiM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ec1-yc-Gxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2289.5" y="411"/>
+            <point key="canvasLocation" x="3101" y="411"/>
         </scene>
         <!--Ask View Controller-->
         <scene sceneID="ugL-40-uzj">
@@ -153,10 +155,11 @@
             </objects>
             <point key="canvasLocation" x="2543" y="1234"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="8xY-HK-4UB">
             <objects>
                 <navigationController storyboardIdentifier="QuestionViewController" automaticallyAdjustsScrollViewInsets="NO" id="WVj-iN-s3T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="LHG-ey-gtF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tHM-sD-oq4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -171,7 +174,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQU-iE-C0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="556"/>
+            <point key="canvasLocation" x="1731" y="556"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mVy-UT-Emm">
