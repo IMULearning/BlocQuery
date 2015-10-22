@@ -8,6 +8,7 @@ target 'BlocQuery' do
   pod 'FontAwesomeKit/FontAwesome'
   pod 'GRMustache', '~> 7.3.2'
   pod 'RSKImageCropper'
+  pod 'DBCamera', '~> 2.4'
 end
 
 target 'BlocQueryTests' do

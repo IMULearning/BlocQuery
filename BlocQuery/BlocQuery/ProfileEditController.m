@@ -17,8 +17,9 @@
 #import "PFImageView+Addition.h"
 #import "StockAvatarViewController.h"
 #import "PhotoLibraryViewController.h"
+#import "CameraViewController.h"
 
-@interface ProfileEditController () <StockAvatarViewControllerDelegate, PhotoLibraryViewControllerDelegate>
+@interface ProfileEditController () <StockAvatarViewControllerDelegate, PhotoLibraryViewControllerDelegate, CameraViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet PFImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -250,7 +251,11 @@
 }
 
 - (void) takePhotoIsSelected {
-    
+    CameraViewController *cameraVC = [[CameraViewController alloc] init];
+    cameraVC.cameraDelegate = self;
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:cameraVC];
+    [navVC setNavigationBarHidden:YES];
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 - (void) chooseFromLibraryIsSelected {
@@ -321,6 +326,12 @@
 #pragma mark - PhotoLibraryViewControllerDelegate
 
 - (void)photoLibraryViewController:(PhotoLibraryViewController *)controller didFinishWithImage:(UIImage *)image {
+    [self saveImageAsAvatar:image];
+}
+
+#pragma mark - CameraViewControllerDelegate
+
+- (void)cameraViewController:(CameraViewController *)controller didFinishWithImage:(UIImage *)image {
     [self saveImageAsAvatar:image];
 }
 

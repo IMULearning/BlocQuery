@@ -46,6 +46,7 @@
 		9A5B11681BD8730800C8F6FF /* StockAvatarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11671BD8730800C8F6FF /* StockAvatarViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9A5B116A1BD878EA00C8F6FF /* Photo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5B11691BD878EA00C8F6FF /* Photo.storyboard */; settings = {ASSET_TAGS = (); }; };
 		9A5B116D1BD8822700C8F6FF /* PhotoLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B116C1BD8822700C8F6FF /* PhotoLibraryViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9A5B11731BD88AF300C8F6FF /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11721BD88AF300C8F6FF /* CameraViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B4E1BCF422D00898527 /* BQQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B4D1BCF422D00898527 /* BQQuestion.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B511BCF447A00898527 /* BQAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B501BCF447A00898527 /* BQAnswer.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B561BCF5E5E00898527 /* Question.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC07B551BCF5E5E00898527 /* Question.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -145,6 +146,8 @@
 		9A5B11691BD878EA00C8F6FF /* Photo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Photo.storyboard; sourceTree = "<group>"; };
 		9A5B116B1BD8822700C8F6FF /* PhotoLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLibraryViewController.h; sourceTree = "<group>"; };
 		9A5B116C1BD8822700C8F6FF /* PhotoLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLibraryViewController.m; sourceTree = "<group>"; };
+		9A5B11711BD88AF300C8F6FF /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		9A5B11721BD88AF300C8F6FF /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		9AC07B4C1BCF422D00898527 /* BQQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQQuestion.h; sourceTree = "<group>"; };
 		9AC07B4D1BCF422D00898527 /* BQQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQQuestion.m; sourceTree = "<group>"; };
 		9AC07B4F1BCF447900898527 /* BQAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQAnswer.h; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 				9A5B11671BD8730800C8F6FF /* StockAvatarViewController.m */,
 				9A5B116B1BD8822700C8F6FF /* PhotoLibraryViewController.h */,
 				9A5B116C1BD8822700C8F6FF /* PhotoLibraryViewController.m */,
+				9A5B11711BD88AF300C8F6FF /* CameraViewController.h */,
+				9A5B11721BD88AF300C8F6FF /* CameraViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -608,6 +613,7 @@
 				9A0008791BCDC47C00EECA2A /* NSError+BQError.m in Sources */,
 				9A5B115A1BD8313D00C8F6FF /* EditBioController.m in Sources */,
 				9A00087C1BCDC79000EECA2A /* SignupFormController.m in Sources */,
+				9A5B11731BD88AF300C8F6FF /* CameraViewController.m in Sources */,
 				9A0008761BCDC3BC00EECA2A /* SignupFormValidator.m in Sources */,
 				9A0008591BCD877C00EECA2A /* LoginFormController.m in Sources */,
 			);
