@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2su-HB-AZD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="2su-HB-AZD" customClass="PFImageView">
                                 <rect key="frame" x="20" y="72" width="80" height="80"/>
                                 <animations/>
                                 <constraints>
@@ -93,7 +93,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="B7Q-cC-TBe">
-                                <rect key="frame" x="20" y="52" width="560" height="200"/>
+                                <rect key="frame" x="20" y="53" width="560" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RUe-cI-RvA">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="50"/>
@@ -101,10 +101,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sP3-LS-2kY">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="50"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V21-tv-qmQ">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="V21-tv-qmQ" customClass="PFImageView">
                                                         <rect key="frame" x="8" y="0.0" width="42" height="42"/>
                                                         <animations/>
                                                         <constraints>
+                                                            <constraint firstAttribute="height" constant="42" id="mcJ-qJ-06D"/>
                                                             <constraint firstAttribute="width" constant="42" id="w9S-1n-UJX"/>
                                                         </constraints>
                                                     </imageView>
@@ -151,6 +152,11 @@
                                         <constraints>
                                             <constraint firstItem="V1R-ye-0FV" firstAttribute="centerY" secondItem="q81-lV-xvu" secondAttribute="centerY" id="6dM-3a-35A"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="6dM-3a-35A"/>
+                                            </mask>
+                                        </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rqa-Xz-Wgg">
                                         <rect key="frame" x="0.0" y="100" width="560" height="50"/>
@@ -323,4 +329,7 @@
             <point key="canvasLocation" x="1455" y="1720"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="man" width="640" height="640"/>
+    </resources>
 </document>

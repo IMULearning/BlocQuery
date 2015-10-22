@@ -12,10 +12,12 @@
 #import "EditBioController.h"
 #import <FAKFontAwesome.h>
 #import <MBProgressHUD.h>
+#import "NSString+Hash.h"
+#import <ParseUI.h>
 
 @interface ProfileEditController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet PFImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 
@@ -64,8 +66,8 @@
 }
 
 - (void) updateAvatarImage {
-    UIImage *fallback = [[FAKFontAwesome userIconWithSize:42] imageWithSize:CGSizeMake(42, 42)];
-    self.avatarImageView.image = [UIImage imageWithGravatarEmail:self.user.email size:42 fallbackImage:fallback];
+    self.avatarImageView.file = self.user[@"photo"];
+    [self.avatarImageView loadInBackground];
 }
 
 - (MBProgressHUD *) progressHud {
@@ -115,6 +117,7 @@
 }
 
 - (IBAction)editPhotoFired:(id)sender {
+    [self presentAvatarSelectionMenu];
 }
 
 - (IBAction)editBioFired:(id)sender {
@@ -167,6 +170,98 @@
         EditBioController *editBioVC = navVC.viewControllers[0];
         editBioVC.user = self.user;
     }
+}
+
+#pragma mark - Avatar selection
+
+- (void) presentAvatarSelectionMenu {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
+                                                                             message:NSLocalizedString(@"Choose from the following options", nil)
+                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    // Cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil)
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                             [alertController dismissViewControllerAnimated:YES completion:nil];
+                                                         }];
+    [alertController addAction:cancelAction];
+    
+    // Take a photo action
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIAlertAction *takePhotoAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Take Photo", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self takePhotoIsSelected];
+        }];
+        [alertController addAction:takePhotoAction];
+    }
+    
+    // Choose from photo library
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+        UIAlertAction *photoLibraryAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Choose from Library", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self chooseFromLibraryIsSelected];
+        }];
+        [alertController addAction:photoLibraryAction];
+    }
+    
+    // Choose Stock
+    UIAlertAction *stockAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Choose from Stock", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self chooseFromStockIsSelected];
+    }];
+    [alertController addAction:stockAction];
+    
+    // Use gravatar photo
+    UIAlertAction *gravatarAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Use Gravatar", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        MBProgressHUD *hud = [self progressHud];
+        [hud showAnimated:YES whileExecutingBlock:^{
+            [self useGravatarIsSelected];
+        }];
+    }];
+    [alertController addAction:gravatarAction];
+    
+    // Remove
+    if (!self.user[@"photo"]) {
+        UIAlertAction *removeAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Remove Photo", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [self removePhotoIsSelected];
+        }];
+        [alertController addAction:removeAction];
+    }
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void) takePhotoIsSelected {
+    
+}
+
+- (void) chooseFromLibraryIsSelected {
+    
+}
+
+- (void) chooseFromStockIsSelected {
+    
+}
+
+- (void) useGravatarIsSelected {
+    NSString *gravatarUrl = [NSString stringWithFormat:@"https://s.gravatar.com/avatar/%@?s=%uld&d=404", [self.user.email MD5], 80];
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:gravatarUrl]];
+    if (!imageData) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSError *error = [NSError blocQueryErrorWithCode:BQError_NoGravatar context:nil params:nil];
+        UIAlertController *alertController = [self alertControllerWithErrors:@[error]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        [[ParseService service] updateUser:self.user avatar:imageData block:^(BOOL succeeded, NSError *error) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            if (!succeeded) {
+                UIAlertController *alertController = [self alertControllerWithErrors:@[error]];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+        }];
+    }
+}
+
+- (void) removePhotoIsSelected {
+    
 }
 
 @end

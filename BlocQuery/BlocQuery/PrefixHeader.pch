@@ -22,5 +22,6 @@
 #import "ParseService.h"
 #import "NSError+BQError.h"
 #import "UIFont+BQFont.h"
+#import "UIImage+BQImage.h"
 
 #endif /* PrefixHeader_pch */

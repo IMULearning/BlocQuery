@@ -26,4 +26,6 @@
 
 - (void) updateUser:(PFUser *)user withForm:(NSDictionary *)form block:(void (^)(BOOL succeeded, NSError *error))callback;
 
+- (void) updateUser:(PFUser *)user avatar:(NSData *)data block:(void (^)(BOOL succeeded, NSError *error))callback;
+
 @end

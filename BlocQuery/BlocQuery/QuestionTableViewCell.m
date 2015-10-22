@@ -10,12 +10,13 @@
 #import <FontAwesomeKit/FAKFontAwesome.h>
 #import "UIImage+Gravatar.h"
 #import "ProfileViewController.h"
+#import <ParseUI.h>
 
 @interface QuestionTableViewCell () <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *answerCountLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *avartarImage;
+@property (weak, nonatomic) IBOutlet PFImageView *avartarImage;
 @property (strong, nonatomic) UITapGestureRecognizer *tapGesture;
 
 @end
@@ -64,10 +65,9 @@
     self.answerCountLabel.text = text;
 }
 
-- (void) setAuthorAvartarWithEmail:(NSString *)authorEmail {
-    UIImage *fallback = [[FAKFontAwesome userIconWithSize:60] imageWithSize:CGSizeMake(80, 80)];
-    UIImage *gravatar = [UIImage imageWithGravatarEmail:authorEmail size:80 fallbackImage:fallback];
-    [self.avartarImage setImage:gravatar];
+- (void) updateAvatar {
+    self.avartarImage.file = [self.question.author fetchIfNeeded][@"photo"];
+    [self.avartarImage loadInBackground];
 }
 
 #pragma mark - Question
@@ -77,7 +77,7 @@
     if (_question) {
         self.questionLabel.text = _question.text;
         [self updateAnswerCountLabelWithCount:_question.answers.count];
-        [self setAuthorAvartarWithEmail:[_question.author fetchIfNeeded].email];
+        [self updateAvatar];
     }
 }
 

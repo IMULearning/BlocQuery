@@ -84,7 +84,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oju-W9-8Iz">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="Oju-W9-8Iz" customClass="PFImageView">
                                                     <rect key="frame" x="8" y="57" width="35" height="35"/>
                                                     <animations/>
                                                     <constraints>
@@ -224,4 +224,7 @@
             <point key="canvasLocation" x="1333" y="1165"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="man" width="640" height="640"/>
+    </resources>
 </document>

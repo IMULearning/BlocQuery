@@ -10,11 +10,12 @@
 #import "UIImage+Gravatar.h"
 #import <FAKFontAwesome.h>
 #import "ProfileViewController.h"
+#import <ParseUI.h>
 
 @interface AnswerTableViewCell () <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *answerLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *authorImage;
+@property (weak, nonatomic) IBOutlet PFImageView *authorImage;
 @property (weak, nonatomic) IBOutlet UILabel *upvoteCountLabel;
 @property (strong, nonatomic) UITapGestureRecognizer *tapGesture;
 
@@ -45,10 +46,9 @@
     self.authorImage.layer.borderWidth = 0;
 }
 
-- (void) updateAuthorImageWithEmail:(NSString *)authorEmail {
-    UIImage *fallback = [[FAKFontAwesome userIconWithSize:35] imageWithSize:CGSizeMake(35, 35)];
-    UIImage *gravatar = [UIImage imageWithGravatarEmail:authorEmail size:35 fallbackImage:fallback];
-    [self.authorImage setImage:gravatar];
+- (void) updateAuthorAvatar {
+    self.authorImage.file = [self.answer.author fetchIfNeeded][@"photo"];
+    [self.authorImage loadInBackground];
 }
 
 - (void) updateUpvoteCountLabel {
@@ -58,7 +58,7 @@
     } else if (self.answer.upVoters.count == 1) {
         text = NSLocalizedString(@"1 upvote", nil);
     } else {
-        text = [[NSString stringWithFormat:@"%d ", self.answer.upVoters.count] stringByAppendingString:NSLocalizedString(@"upvotes", nil)];
+        text = [[NSString stringWithFormat:@"%ld ", self.answer.upVoters.count] stringByAppendingString:NSLocalizedString(@"upvotes", nil)];
     }
     self.upvoteCountLabel.text = text;
 }
@@ -69,7 +69,7 @@
     _answer = [answer fetchIfNeeded];
     if (_answer) {
         self.answerLabel.text = _answer.text;
-        [self updateAuthorImageWithEmail:[_answer.author fetchIfNeeded].email];
+        [self updateAuthorAvatar];
         [self updateUpvoteCountLabel];
     }
 }

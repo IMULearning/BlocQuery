@@ -122,6 +122,15 @@
   				<key>recovery</key>
   				<string>Please provide a question of at least {{count}} characters.</string>
         </dict>
+        <key>111:*</key>
+        <dict>
+          <key>description</key>
+  				<string>Get Gravatar failed</string>
+  				<key>reason</key>
+  				<string>Gravatar.com did not return any data</string>
+  				<key>recovery</key>
+  				<string>We couldn't locate your Gravatar. Please make sure you have registered gravatar.com with the same email you registered with us.</string>
+        </dict>
       </dict>
     </dict>
 </plist>

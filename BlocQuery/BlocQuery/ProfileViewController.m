@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "UIImage+Gravatar.h"
 #import "ProfileEditController.h"
+#import <ParseUI/ParseUI.h>
 #import <FAKFontAwesome.h>
 
 @interface ProfileViewController ()
@@ -18,7 +19,7 @@
 @property (nonatomic, strong) UIBarButtonItem *editButton;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *personalBioLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
+@property (weak, nonatomic) IBOutlet PFImageView *avatarImage;
 
 @end
 
@@ -107,9 +108,8 @@
 }
 
 - (void) updateAvartarImage {
-    NSString *email = self.user.email;
-    UIImage *fallback = [[FAKFontAwesome userIconWithSize:60] imageWithSize:CGSizeMake(80, 80)];
-    self.avatarImage.image = [UIImage imageWithGravatarEmail:email size:80 fallbackImage:fallback];
+    self.avatarImage.file = self.user[@"photo"];
+    [self.avatarImage loadInBackground];
 }
 
 - (void) updateNameLabel {

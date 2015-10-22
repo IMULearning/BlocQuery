@@ -111,4 +111,18 @@
     }];
 }
 
+- (void) updateUser:(PFUser *)user avatar:(NSData *)data block:(void (^)(BOOL succeeded, NSError *error))callback {
+    user[@"photo"] = (data == nil) ? nil : [PFFile fileWithData:data];
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (callback) {
+            if (succeeded) {
+                callback(succeeded, error);
+                [[NSNotificationCenter defaultCenter] postNotificationName:BQUserAvatarUpdatedNotification object:nil userInfo:@{@"user": user}];
+            } else {
+                callback(succeeded, [NSError blocQueryErrorFromError:error withCode:BQError_UpdateAvatarFailed context:nil params:nil]);
+            }
+        }
+    }];
+}
+
 @end

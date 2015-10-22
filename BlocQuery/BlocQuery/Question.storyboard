@@ -30,7 +30,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sIM-nM-71e">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="sIM-nM-71e" customClass="PFImageView">
                                             <rect key="frame" x="512" y="8" width="80" height="80"/>
                                             <animations/>
                                             <gestureRecognizers/>
@@ -197,4 +197,7 @@
             <point key="canvasLocation" x="1731" y="1234"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="man" width="640" height="640"/>
+    </resources>
 </document>

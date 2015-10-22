@@ -22,5 +22,7 @@
 #define BQError_CreateQuestionFailed 107
 #define BQError_CreateAnswerFailed 108
 #define BQError_UpdateUserFailed 109
+#define BQError_UpdateAvatarFailed 110
+#define BQError_NoGravatar 111
 
 #endif /* BQErrorDomain_h */
