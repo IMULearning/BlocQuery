@@ -51,4 +51,11 @@ static NSInteger imageViewTag = 1234;
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - Button targets
+
+- (IBAction)cancelButtonFired:(id)sender {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 @end

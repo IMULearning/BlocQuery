@@ -52,7 +52,14 @@
                             <outlet property="delegate" destination="jTh-4S-GDb" id="9ta-SC-1JN"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="FQN-Xf-FTJ"/>
+                    <navigationItem key="navigationItem" id="FQN-Xf-FTJ">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="5ZK-tQ-gKi">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelButtonFired:" destination="jTh-4S-GDb" id="mHV-yW-P62"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="nlt-rt-iHS" id="aTa-K4-DsB"/>
                     </connections>
