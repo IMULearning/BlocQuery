@@ -11,6 +11,7 @@
 #import <FAKFontAwesome.h>
 #import "ProfileViewController.h"
 #import <ParseUI.h>
+#import "PFImageView+Addition.h"
 
 @interface AnswerTableViewCell () <UIGestureRecognizerDelegate>
 
@@ -38,7 +39,17 @@
     [super setSelected:selected animated:animated];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - UI
+
+- (void) updateUI {
+    self.answerLabel.text = _answer.text;
+    [self updateAuthorAvatar];
+    [self updateUpvoteCountLabel];
+}
 
 - (void) makeCircleAuthorImageView {
     self.authorImage.layer.cornerRadius = self.authorImage.frame.size.height / 2;
@@ -47,7 +58,13 @@
 }
 
 - (void) updateAuthorAvatar {
-    self.authorImage.file = [self.answer.author fetchIfNeeded][@"photo"];
+    id photo = [self.answer.author fetchIfNeeded][@"photo"];
+    if ([photo isKindOfClass:[PFFile class]]) {
+        self.authorImage.file = photo;
+    } else {
+        [self.authorImage clearFile];
+    }
+    
     [self.authorImage loadInBackground];
 }
 
@@ -68,9 +85,7 @@
 - (void)setAnswer:(BQAnswer *)answer {
     _answer = [answer fetchIfNeeded];
     if (_answer) {
-        self.answerLabel.text = _answer.text;
-        [self updateAuthorAvatar];
-        [self updateUpvoteCountLabel];
+        [self updateUI];
     }
 }
 

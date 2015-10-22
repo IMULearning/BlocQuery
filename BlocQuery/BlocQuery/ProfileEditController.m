@@ -14,6 +14,7 @@
 #import <MBProgressHUD.h>
 #import "NSString+Hash.h"
 #import <ParseUI.h>
+#import "PFImageView+Addition.h"
 
 @interface ProfileEditController ()
 
@@ -27,6 +28,7 @@
 
 - (void)awakeFromNib {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userUpdated:) name:BQUserUpdatedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userAvatarUpdated:) name:BQUserAvatarUpdatedNotification object:nil];
 }
 
 - (void)dealloc {
@@ -66,7 +68,12 @@
 }
 
 - (void) updateAvatarImage {
-    self.avatarImageView.file = self.user[@"photo"];
+    if ([self.user[@"photo"] isKindOfClass:[PFFile class]]) {
+        self.avatarImageView.file = self.user[@"photo"];
+    } else {
+        [self.avatarImageView clearFile];
+    }
+    
     [self.avatarImageView loadInBackground];
 }
 
@@ -155,12 +162,20 @@
 - (void)userUpdated: (NSNotification *)notification {
     PFUser *updatedUser = notification.userInfo[@"user"];
     if ([updatedUser.email isEqualToString:self.user.email]) {
-        [self.user fetch];
-        [self updateAvatarImage];
-        [self updateNamesInput];
+        [self.user fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            [self updateNamesInput];
+        }];
     }
 }
 
+- (void)userAvatarUpdated: (NSNotification *)notification {
+    PFUser *updatedUser = notification.userInfo[@"user"];
+    if ([updatedUser.email isEqualToString:self.user.email]) {
+        [self.user fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            [self updateAvatarImage];
+        }];
+    }
+}
 
 #pragma mark - Navigation
 
@@ -219,9 +234,12 @@
     [alertController addAction:gravatarAction];
     
     // Remove
-    if (!self.user[@"photo"]) {
+    if ([self.user[@"photo"] isKindOfClass:[PFFile class]]) {
         UIAlertAction *removeAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Remove Photo", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            [self removePhotoIsSelected];
+            MBProgressHUD *hud = [self progressHud];
+            [hud showAnimated:YES whileExecutingBlock:^{
+                [self removePhotoIsSelected];
+            }];
         }];
         [alertController addAction:removeAction];
     }
@@ -261,7 +279,13 @@
 }
 
 - (void) removePhotoIsSelected {
-    
+    [[ParseService service] updateUser:self.user avatar:nil block:^(BOOL succeeded, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if (!succeeded) {
+            UIAlertController *alertController = [self alertControllerWithErrors:@[error]];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+    }];
 }
 
 @end

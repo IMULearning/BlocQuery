@@ -112,7 +112,7 @@
 }
 
 - (void) updateUser:(PFUser *)user avatar:(NSData *)data block:(void (^)(BOOL succeeded, NSError *error))callback {
-    user[@"photo"] = (data == nil) ? nil : [PFFile fileWithData:data];
+    user[@"photo"] = (data == nil) ? [NSNull null] : [PFFile fileWithData:data];
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (callback) {
             if (succeeded) {

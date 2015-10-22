@@ -42,6 +42,7 @@
 		9A5B11571BD82D6100C8F6FF /* EditProfileFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11561BD82D6100C8F6FF /* EditProfileFormValidator.m */; settings = {ASSET_TAGS = (); }; };
 		9A5B115A1BD8313D00C8F6FF /* EditBioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11591BD8313D00C8F6FF /* EditBioController.m */; settings = {ASSET_TAGS = (); }; };
 		9A5B11621BD85E7400C8F6FF /* UIImage+BQImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11611BD85E7400C8F6FF /* UIImage+BQImage.m */; settings = {ASSET_TAGS = (); }; };
+		9A5B11651BD86C8B00C8F6FF /* PFImageView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11641BD86C8B00C8F6FF /* PFImageView+Addition.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B4E1BCF422D00898527 /* BQQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B4D1BCF422D00898527 /* BQQuestion.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B511BCF447A00898527 /* BQAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B501BCF447A00898527 /* BQAnswer.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B561BCF5E5E00898527 /* Question.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC07B551BCF5E5E00898527 /* Question.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -134,6 +135,8 @@
 		9A5B11591BD8313D00C8F6FF /* EditBioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBioController.m; sourceTree = "<group>"; };
 		9A5B11601BD85E7400C8F6FF /* UIImage+BQImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BQImage.h"; sourceTree = "<group>"; };
 		9A5B11611BD85E7400C8F6FF /* UIImage+BQImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BQImage.m"; sourceTree = "<group>"; };
+		9A5B11631BD86C8B00C8F6FF /* PFImageView+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFImageView+Addition.h"; sourceTree = "<group>"; };
+		9A5B11641BD86C8B00C8F6FF /* PFImageView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFImageView+Addition.m"; sourceTree = "<group>"; };
 		9AC07B4C1BCF422D00898527 /* BQQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQQuestion.h; sourceTree = "<group>"; };
 		9AC07B4D1BCF422D00898527 /* BQQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQQuestion.m; sourceTree = "<group>"; };
 		9AC07B4F1BCF447900898527 /* BQAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQAnswer.h; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				9AC07B6A1BCF843500898527 /* UIImage+Gravatar.m */,
 				9A5B11601BD85E7400C8F6FF /* UIImage+BQImage.h */,
 				9A5B11611BD85E7400C8F6FF /* UIImage+BQImage.m */,
+				9A5B11631BD86C8B00C8F6FF /* PFImageView+Addition.h */,
+				9A5B11641BD86C8B00C8F6FF /* PFImageView+Addition.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -578,6 +583,7 @@
 				9A1DBDDE1BD6E37C007A4803 /* AnswerTableViewCell.m in Sources */,
 				9A1DBDD41BD1934E007A4803 /* ErrorHandler.m in Sources */,
 				9A5B114F1BD7F84500C8F6FF /* ProfileViewController.m in Sources */,
+				9A5B11651BD86C8B00C8F6FF /* PFImageView+Addition.m in Sources */,
 				9AC07B6B1BCF843500898527 /* UIImage+Gravatar.m in Sources */,
 				9A00086B1BCDA47C00EECA2A /* UIFont+BQFont.m in Sources */,
 				9A0008211BCD650600EECA2A /* main.m in Sources */,

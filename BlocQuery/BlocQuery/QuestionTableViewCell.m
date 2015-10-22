@@ -11,6 +11,7 @@
 #import "UIImage+Gravatar.h"
 #import "ProfileViewController.h"
 #import <ParseUI.h>
+#import "PFImageView+Addition.h"
 
 @interface QuestionTableViewCell () <UIGestureRecognizerDelegate>
 
@@ -35,6 +36,7 @@
     self.tapGesture.delegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNewAnswerNotification:) name:BQQuestionNewAnswerNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userAvatarUpdated:) name:BQUserAvatarUpdatedNotification object:nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -66,8 +68,23 @@
 }
 
 - (void) updateAvatar {
-    self.avartarImage.file = [self.question.author fetchIfNeeded][@"photo"];
+    id photo = [self.question.author fetchIfNeeded][@"photo"];
+    if ([photo isKindOfClass:[PFFile class]]) {
+        self.avartarImage.file = photo;
+    } else {
+        [self.avartarImage clearFile];
+    }
+    
     [self.avartarImage loadInBackground];
+}
+
+- (void)userAvatarUpdated:(NSNotification *)notification {
+    PFUser *user = notification.userInfo[@"user"];
+    if ([user.email isEqualToString:self.question.author.email]) {
+        [self.question.author fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            [self updateAvatar];
+        }];
+    }
 }
 
 #pragma mark - Question

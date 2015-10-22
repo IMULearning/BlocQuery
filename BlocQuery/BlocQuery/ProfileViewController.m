@@ -11,6 +11,7 @@
 #import "ProfileEditController.h"
 #import <ParseUI/ParseUI.h>
 #import <FAKFontAwesome.h>
+#import "PFImageView+Addition.h"
 
 @interface ProfileViewController ()
 
@@ -30,6 +31,7 @@
     self.navigationController.tabBarItem.image = [[FAKFontAwesome userIconWithSize:30] imageWithSize:CGSizeMake(30, 30)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userUpdated:) name:BQUserUpdatedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userAvatarUpdated:) name:BQUserAvatarUpdatedNotification object:nil];
 }
 
 - (void)viewDidLoad {
@@ -108,7 +110,13 @@
 }
 
 - (void) updateAvartarImage {
-    self.avatarImage.file = self.user[@"photo"];
+    id photo = self.user[@"photo"];
+    if ([photo isKindOfClass:[PFFile class]]) {
+        self.avatarImage.file = photo;
+    } else {
+        [self.avatarImage clearFile];
+    }
+
     [self.avatarImage loadInBackground];
 }
 
@@ -149,8 +157,18 @@
 - (void) userUpdated:(NSNotification *)notification {
     PFUser *user = notification.userInfo[@"user"];
     if ([user.email isEqualToString:self.user.email]) {
-        [self.user fetch];
-        [self updateUI];
+        [self.user fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            [self updateUI];
+        }];
+    }
+}
+
+- (void) userAvatarUpdated:(NSNotification *)notification {
+    PFUser *user = notification.userInfo[@"user"];
+    if ([user.email isEqualToString:self.user.email]) {
+        [self.user fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            [self updateAvartarImage];
+        }];
     }
 }
 
