@@ -12,6 +12,7 @@
 #import "ProfileViewController.h"
 #import <ParseUI.h>
 #import "PFImageView+Addition.h"
+#import "UIColor+BQColor.h"
 
 @interface AnswerTableViewCell () <UIGestureRecognizerDelegate>
 
@@ -19,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet PFImageView *authorImage;
 @property (weak, nonatomic) IBOutlet UILabel *upvoteCountLabel;
 @property (strong, nonatomic) UITapGestureRecognizer *tapGesture;
+@property (weak, nonatomic) IBOutlet UIButton *voteButton;
+@property (assign) BOOL upvoted;
 
 @end
 
@@ -49,6 +52,7 @@
     self.answerLabel.text = _answer.text;
     [self updateAuthorAvatar];
     [self updateUpvoteCountLabel];
+    [self updateVoteButtonToVoted:self.upvoted];
 }
 
 - (void) makeCircleAuthorImageView {
@@ -80,13 +84,29 @@
     self.upvoteCountLabel.text = text;
 }
 
+- (void) updateVoteButtonToVoted:(BOOL) voted {
+    FAKFontAwesome *icon = [FAKFontAwesome thumbsOUpIconWithSize:20];
+    [icon addAttribute:NSForegroundColorAttributeName
+                 value:voted ? [UIColor alizarinRed] : [UIColor peterRiverBlue]];
+    [self.voteButton setAttributedTitle:[icon attributedString] forState:UIControlStateNormal];
+}
+
 #pragma mark - Answer
 
 - (void)setAnswer:(BQAnswer *)answer {
     _answer = [answer fetchIfNeeded];
     if (_answer) {
+        self.upvoted = [self didIUpvote];
         [self updateUI];
     }
+}
+
+- (BOOL) didIUpvote {
+    for (PFUser *upVoter in self.answer.upVoters) {
+        if ([upVoter.email isEqualToString:[PFUser currentUser].email])
+            return YES;
+    }
+    return NO;
 }
 
 #pragma mark - Gesture
@@ -94,5 +114,21 @@
 - (void) didTapAvartar {
     [[NSNotificationCenter defaultCenter] postNotificationName:BQPresentUserProfileNotification object:nil userInfo:@{@"user": self.answer.author}];
 }
+
+#pragma mark - Button target
+
+- (IBAction)voteButtonTapped:(id)sender {
+    self.upvoted = !self.upvoted;
+    [self updateVoteButtonToVoted:self.upvoted];
+    
+    [[ParseService service] vote:self.upvoted forAnswer:self.answer block:^(BOOL succeeded, NSError *error) {
+        [self.answer fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            self.upvoted = [self didIUpvote];
+            [self updateVoteButtonToVoted:self.upvoted];
+            [self updateUpvoteCountLabel];
+        }];
+    }];
+}
+
 
 @end

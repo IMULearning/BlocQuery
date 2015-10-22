@@ -24,5 +24,6 @@
 #define BQError_UpdateUserFailed 109
 #define BQError_UpdateAvatarFailed 110
 #define BQError_NoGravatar 111
+#define BQError_UpdateVoteFailed 112
 
 #endif /* BQErrorDomain_h */

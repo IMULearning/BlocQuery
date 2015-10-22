@@ -28,4 +28,5 @@
 
 - (void) updateUser:(PFUser *)user avatar:(NSData *)data block:(void (^)(BOOL succeeded, NSError *error))callback;
 
+- (void) vote:(BOOL)vote forAnswer:(BQAnswer *)answer block:(void (^)(BOOL succeeded, NSError *error))callback;
 @end

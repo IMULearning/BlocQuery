@@ -125,4 +125,52 @@
     }];
 }
 
+- (void) vote:(BOOL)vote forAnswer:(BQAnswer *)answer block:(void (^)(BOOL succeeded, NSError *error))callback {
+    PFUser *user = [PFUser currentUser];
+    
+    if (vote && ![self hasUser:user votedForAnswer:answer]) {
+        answer.upVoters = [answer.upVoters arrayByAddingObject:user];
+    } else if (!vote) {
+        NSMutableArray *array = [answer.upVoters mutableCopy];
+        
+        PFUser *found = nil;
+        for (PFUser *voter in answer.upVoters) {
+            if ([voter.email isEqualToString:user.email]) {
+                found = voter;
+                break;
+            }
+        }
+        
+        if (found) {
+            [array removeObject:found];
+        }
+        
+        answer.upVoters = array;
+    }
+    
+    if ([answer isDirty]) {
+        [answer saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (callback) {
+                if (succeeded) {
+                    callback(succeeded, error);
+                } else {
+                    callback(succeeded, [NSError blocQueryErrorFromError:error withCode:BQError_UpdateVoteFailed context:nil params:nil]);
+                }
+            }
+        }];
+    } else {
+        if (callback) {
+            callback(YES, nil);
+        }
+    }
+}
+
+- (BOOL) hasUser:(PFUser *)user votedForAnswer:(BQAnswer *)answer {
+    for (PFUser *voter in answer.upVoters) {
+        if ([voter.email isEqualToString:user.email])
+            return YES;
+    }
+    return NO;
+}
+
 @end
