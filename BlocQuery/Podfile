@@ -7,6 +7,7 @@ target 'BlocQuery' do
   pod 'Underscore.m'
   pod 'FontAwesomeKit/FontAwesome'
   pod 'GRMustache', '~> 7.3.2'
+  pod 'RSKImageCropper'
 end
 
 target 'BlocQueryTests' do

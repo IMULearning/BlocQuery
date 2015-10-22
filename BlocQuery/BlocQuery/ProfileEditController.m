@@ -16,8 +16,9 @@
 #import <ParseUI.h>
 #import "PFImageView+Addition.h"
 #import "StockAvatarViewController.h"
+#import "PhotoLibraryViewController.h"
 
-@interface ProfileEditController () <StockAvatarViewControllerDelegate>
+@interface ProfileEditController () <StockAvatarViewControllerDelegate, PhotoLibraryViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet PFImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -253,7 +254,11 @@
 }
 
 - (void) chooseFromLibraryIsSelected {
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Photo" bundle:nil];
+    UINavigationController *navVC = [storyboard instantiateViewControllerWithIdentifier:@"PhotoLibraryController"];
+    PhotoLibraryViewController *libVC = navVC.viewControllers[0];
+    libVC.delegate = self;
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 - (void) chooseFromStockIsSelected {
@@ -294,9 +299,7 @@
     }];
 }
 
-#pragma mark - StockAvatarViewControllerDelegate
-
-- (void)stockAvatarViewController:(StockAvatarViewController *)controller didSelectImage:(UIImage *)image {
+- (void) saveImageAsAvatar: (UIImage *)image {
     MBProgressHUD *hud = [self progressHud];
     [hud showAnimated:YES whileExecutingBlock:^{
         [[ParseService service] updateUser:self.user avatar:UIImagePNGRepresentation(image) block:^(BOOL succeeded, NSError *error) {
@@ -307,6 +310,18 @@
             }
         }];
     }];
+}
+
+#pragma mark - StockAvatarViewControllerDelegate
+
+- (void)stockAvatarViewController:(StockAvatarViewController *)controller didSelectImage:(UIImage *)image {
+    [self saveImageAsAvatar:image];
+}
+
+#pragma mark - PhotoLibraryViewControllerDelegate
+
+- (void)photoLibraryViewController:(PhotoLibraryViewController *)controller didFinishWithImage:(UIImage *)image {
+    [self saveImageAsAvatar:image];
 }
 
 @end
