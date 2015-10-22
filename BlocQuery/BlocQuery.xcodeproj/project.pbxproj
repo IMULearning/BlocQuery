@@ -43,6 +43,8 @@
 		9A5B115A1BD8313D00C8F6FF /* EditBioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11591BD8313D00C8F6FF /* EditBioController.m */; settings = {ASSET_TAGS = (); }; };
 		9A5B11621BD85E7400C8F6FF /* UIImage+BQImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11611BD85E7400C8F6FF /* UIImage+BQImage.m */; settings = {ASSET_TAGS = (); }; };
 		9A5B11651BD86C8B00C8F6FF /* PFImageView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11641BD86C8B00C8F6FF /* PFImageView+Addition.m */; settings = {ASSET_TAGS = (); }; };
+		9A5B11681BD8730800C8F6FF /* StockAvatarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B11671BD8730800C8F6FF /* StockAvatarViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9A5B116A1BD878EA00C8F6FF /* Photo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5B11691BD878EA00C8F6FF /* Photo.storyboard */; settings = {ASSET_TAGS = (); }; };
 		9AC07B4E1BCF422D00898527 /* BQQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B4D1BCF422D00898527 /* BQQuestion.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B511BCF447A00898527 /* BQAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC07B501BCF447A00898527 /* BQAnswer.m */; settings = {ASSET_TAGS = (); }; };
 		9AC07B561BCF5E5E00898527 /* Question.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC07B551BCF5E5E00898527 /* Question.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -137,6 +139,9 @@
 		9A5B11611BD85E7400C8F6FF /* UIImage+BQImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BQImage.m"; sourceTree = "<group>"; };
 		9A5B11631BD86C8B00C8F6FF /* PFImageView+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFImageView+Addition.h"; sourceTree = "<group>"; };
 		9A5B11641BD86C8B00C8F6FF /* PFImageView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFImageView+Addition.m"; sourceTree = "<group>"; };
+		9A5B11661BD8730800C8F6FF /* StockAvatarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockAvatarViewController.h; sourceTree = "<group>"; };
+		9A5B11671BD8730800C8F6FF /* StockAvatarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockAvatarViewController.m; sourceTree = "<group>"; };
+		9A5B11691BD878EA00C8F6FF /* Photo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Photo.storyboard; sourceTree = "<group>"; };
 		9AC07B4C1BCF422D00898527 /* BQQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQQuestion.h; sourceTree = "<group>"; };
 		9AC07B4D1BCF422D00898527 /* BQQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQQuestion.m; sourceTree = "<group>"; };
 		9AC07B4F1BCF447900898527 /* BQAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQAnswer.h; sourceTree = "<group>"; };
@@ -304,6 +309,8 @@
 				9A5B11531BD818F800C8F6FF /* ProfileEditController.m */,
 				9A5B11581BD8313D00C8F6FF /* EditBioController.h */,
 				9A5B11591BD8313D00C8F6FF /* EditBioController.m */,
+				9A5B11661BD8730800C8F6FF /* StockAvatarViewController.h */,
+				9A5B11671BD8730800C8F6FF /* StockAvatarViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -369,6 +376,7 @@
 				9A1DBDDA1BD6D4B4007A4803 /* Answer.storyboard */,
 				9A5B114B1BD7F82100C8F6FF /* Profile.storyboard */,
 				9A5B11501BD7F9B300C8F6FF /* Main.storyboard */,
+				9A5B11691BD878EA00C8F6FF /* Photo.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -494,6 +502,7 @@
 				9A0008321BCD650600EECA2A /* LaunchScreen.storyboard in Resources */,
 				9A1DBDDB1BD6D4B4007A4803 /* Answer.storyboard in Resources */,
 				9A5B11511BD7F9B300C8F6FF /* Main.storyboard in Resources */,
+				9A5B116A1BD878EA00C8F6FF /* Photo.storyboard in Resources */,
 				9A00082F1BCD650600EECA2A /* Assets.xcassets in Resources */,
 				9A1DBDCD1BD18C7C007A4803 /* Error.plist in Resources */,
 			);
@@ -577,6 +586,7 @@
 				9AC07B631BCF7B8D00898527 /* QuestionFormValidator.m in Sources */,
 				9A5B11621BD85E7400C8F6FF /* UIImage+BQImage.m in Sources */,
 				9A0008521BCD794800EECA2A /* UIColor+BQColor.m in Sources */,
+				9A5B11681BD8730800C8F6FF /* StockAvatarViewController.m in Sources */,
 				9A1DBDE11BD6F31D007A4803 /* ComposeAnswerViewController.m in Sources */,
 				9A1DBDD91BD6C474007A4803 /* BQAnswerViewController.m in Sources */,
 				9A0008561BCD7DB400EECA2A /* LoginViewController.m in Sources */,

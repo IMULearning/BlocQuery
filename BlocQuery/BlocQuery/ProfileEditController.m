@@ -15,8 +15,9 @@
 #import "NSString+Hash.h"
 #import <ParseUI.h>
 #import "PFImageView+Addition.h"
+#import "StockAvatarViewController.h"
 
-@interface ProfileEditController ()
+@interface ProfileEditController () <StockAvatarViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet PFImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -256,7 +257,12 @@
 }
 
 - (void) chooseFromStockIsSelected {
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Photo" bundle:nil];
+    UINavigationController *navVC = [storyboard instantiateViewControllerWithIdentifier:@"StockAvatarController"];
+    StockAvatarViewController *stockVC = navVC.viewControllers[0];
+    stockVC.stockPhotos = @[[UIImage imageNamed:@"man"], [UIImage imageNamed:@"woman"]];
+    stockVC.delegate = self;
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 - (void) useGravatarIsSelected {
@@ -285,6 +291,21 @@
             UIAlertController *alertController = [self alertControllerWithErrors:@[error]];
             [self presentViewController:alertController animated:YES completion:nil];
         }
+    }];
+}
+
+#pragma mark - StockAvatarViewControllerDelegate
+
+- (void)stockAvatarViewController:(StockAvatarViewController *)controller didSelectImage:(UIImage *)image {
+    MBProgressHUD *hud = [self progressHud];
+    [hud showAnimated:YES whileExecutingBlock:^{
+        [[ParseService service] updateUser:self.user avatar:UIImagePNGRepresentation(image) block:^(BOOL succeeded, NSError *error) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            if (!succeeded) {
+                UIAlertController *alertController = [self alertControllerWithErrors:@[error]];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+        }];
     }];
 }
 
