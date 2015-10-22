@@ -24,6 +24,7 @@
     [self setupParse];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedIn) name:BQUserLoggedInNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedOut) name:BQUserLoggedoutNotification object:nil];
     
     if ([PFUser currentUser]) {
         self.window.rootViewController = [self mainController];
@@ -92,6 +93,15 @@
         BOOL oldState = [UIView areAnimationsEnabled];
         [UIView setAnimationsEnabled:NO];
         self.window.rootViewController = [self mainController];
+        [UIView setAnimationsEnabled:oldState];
+    } completion:nil];
+}
+
+- (void) userLoggedOut {
+    [UIView transitionWithView:self.window duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        BOOL oldState = [UIView areAnimationsEnabled];
+        [UIView setAnimationsEnabled:NO];
+        self.window.rootViewController = [self loginViewController];
         [UIView setAnimationsEnabled:oldState];
     } completion:nil];
 }

@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *personalBioLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *avatarImage;
+@property (weak, nonatomic) IBOutlet UIButton *moreButton;
 
 @end
 
@@ -60,6 +61,7 @@
     [self updateAvartarImage];
     [self updateNameLabel];
     [self updateBioLabel];
+    [self updateMoreButton];
     if (self.navigationController.tabBarController == nil) {
         [self updateExitButton];
     }
@@ -109,6 +111,17 @@
     }
 }
 
+- (void) updateMoreButton {
+    if ([self.user.email isEqualToString:[PFUser currentUser].email]) {
+        self.moreButton.hidden = NO;
+        FAKFontAwesome *more = [FAKFontAwesome ellipsisHIconWithSize:25];
+        [more addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor]];
+        [self.moreButton setAttributedTitle:[more attributedString] forState:UIControlStateNormal];
+    } else {
+        self.moreButton.hidden = YES;
+    }
+}
+
 - (void) updateAvartarImage {
     id photo = self.user[@"photo"];
     if ([photo isKindOfClass:[PFFile class]]) {
@@ -145,6 +158,36 @@
 - (void) exitButtonFired:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)moreButtonFired:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"Choose from the following options", nil) preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    // Cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil)
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                             [alertController dismissViewControllerAnimated:YES completion:nil];
+                                                         }];
+    [alertController addAction:cancelAction];
+    
+    // Edit
+    UIAlertAction *editAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Edit Profile", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self editButtonFired:nil];
+    }];
+    [alertController addAction:editAction];
+    
+    // Sign out
+    UIAlertAction *signoutAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Sign Out", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:BQUserLoggedoutNotification object:nil];
+        }];
+    }];
+    [alertController addAction:signoutAction];
+    
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 
 #pragma mark - User
 

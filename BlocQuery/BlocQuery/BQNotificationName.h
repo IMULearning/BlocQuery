@@ -10,6 +10,7 @@
 #define BQNotificationName_h
 
 #define BQUserLoggedInNotification @"BQUserLoggedInNotification"
+#define BQUserLoggedoutNotification @"BQUserLoggedoutNotification"
 #define BQQuestionCreatedNotification @"BQQuestionCreatedNotification"
 #define BQQuestionNewAnswerNotification @"BQQuestionNewAnswerNotification"
 #define BQPresentUserProfileNotification @"BQPresentUserProfileNotification"

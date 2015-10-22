@@ -46,6 +46,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOP-VC-6qD">
+                                <rect key="frame" x="539" y="122" width="36" height="30"/>
+                                <animations/>
+                                <state key="normal" title="More"/>
+                                <connections>
+                                    <action selector="moreButtonFired:" destination="9JX-SH-pxa" eventType="touchUpInside" id="PKw-8p-lpm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,14 +65,17 @@
                             <constraint firstItem="vM3-ia-kJy" firstAttribute="top" secondItem="dTk-jr-iaW" secondAttribute="bottom" constant="8" id="YIH-YI-RTb"/>
                             <constraint firstAttribute="leadingMargin" secondItem="2su-HB-AZD" secondAttribute="leading" id="b9t-w2-y9d"/>
                             <constraint firstAttribute="leadingMargin" secondItem="vM3-ia-kJy" secondAttribute="leading" id="fdm-Ms-oyh"/>
+                            <constraint firstItem="FOP-VC-6qD" firstAttribute="bottom" secondItem="2su-HB-AZD" secondAttribute="bottom" id="isw-Cm-0QX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vM3-ia-kJy" secondAttribute="trailing" id="jfC-Tq-oeJ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="dTk-jr-iaW" secondAttribute="leading" id="pA8-nV-xd0"/>
                             <constraint firstItem="dTk-jr-iaW" firstAttribute="top" secondItem="2su-HB-AZD" secondAttribute="bottom" constant="8" id="tc7-2b-sBx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FOP-VC-6qD" secondAttribute="trailing" constant="5" id="zCB-jh-6Jk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OUd-uh-9bc"/>
                     <connections>
                         <outlet property="avatarImage" destination="2su-HB-AZD" id="zG3-3h-EDn"/>
+                        <outlet property="moreButton" destination="FOP-VC-6qD" id="N78-ym-xYZ"/>
                         <outlet property="nameLabel" destination="iJo-o6-Fbr" id="Ucf-Xn-m2D"/>
                         <outlet property="personalBioLabel" destination="vM3-ia-kJy" id="7t8-Mk-GZY"/>
                     </connections>
