@@ -12,13 +12,16 @@
 #import "ProfileViewController.h"
 #import <FAKFontAwesome.h>
 #import <MBProgressHUD.h>
+#import "AnswerTableViewController.h"
 
-@interface BQAnswerViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface BQAnswerViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *exitButton;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *answerCountLabel;
-@property (weak, nonatomic) IBOutlet UITableView *answersTableView;
+
+@property (weak, nonatomic) IBOutlet UIView *answerTableView;
+@property (nonatomic, strong) AnswerTableViewController *answerTableVC;
 
 @end
 
@@ -60,26 +63,44 @@
 #pragma mark - Table view
 
 - (void) setupTableView {
-    self.answersTableView.delegate = self;
-    self.answersTableView.dataSource = self;
-    self.answersTableView.estimatedRowHeight = 100.0;
-    self.answersTableView.rowHeight = UITableViewAutomaticDimension;
-    self.answersTableView.tableFooterView = [UIView new];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Answer" bundle:nil];
+    self.answerTableVC = [storyboard instantiateViewControllerWithIdentifier:@"AnswerTableViewController"];
+    self.answerTableVC.question = self.question;
+    [self addChildViewController:self.answerTableVC];
+    [self.answerTableView addSubview:self.answerTableVC.view];
+    self.answerTableVC.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.answerTableView.frame), CGRectGetHeight(self.answerTableView.frame));
+    [self.answerTableVC didMoveToParentViewController:self];
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
-}
+#pragma mark - AnswerTableViewCellUpvoteProtocal
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AnswerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"answerCell" forIndexPath:indexPath];
-    cell.answer = self.question.answers[indexPath.row];
-    return cell;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.question.answers.count;
-}
+//- (void)cell:(AnswerTableViewCell *)cell didFinishUpvote:(BOOL)vote withAnswer:(BQAnswer *)answer {
+//    NSIndexPath *currentIndexPath = [self.answersTableView indexPathForCell:cell];
+//    NSInteger cursorRow = currentIndexPath.row;
+//    
+//    if (vote) {
+//        
+//        while (cursorRow > 0) {
+//            if ([[self.question fetchIfNeeded].answers[cursorRow - 1] fetchIfNeeded].upVoters.count > answer.upVoters.count)
+//                break;
+//            cursorRow--;
+//        }
+//    } else {
+//        while (cursorRow < self.question.answers.count - 1) {
+//            if ([[self.question fetchIfNeeded].answers[cursorRow + 1] fetchIfNeeded].upVoters.count <= answer.upVoters.count)
+//                break;
+//            cursorRow++;
+//        }
+//    }
+//    
+////    NSMutableArray *answerArray = [self.objects mutableCopy];
+////    BQAnswer *answerToSwap = [answerArray objectAtIndex:currentIndexPath.row];
+////    [answerArray removeObject:answerToSwap];
+////    [answerArray insertObject:answerToSwap atIndex:cursorRow];
+////    self.objects = answerArray;
+////    
+////    [self.answersTableView moveRowAtIndexPath:currentIndexPath toIndexPath:[NSIndexPath indexPathForRow:cursorRow inSection:0]];
+//}
 
 #pragma mark - Button targets
 
@@ -134,7 +155,6 @@
 - (void)didSuccessfullyCreateAnswer:(NSNotification *)notification {
     if ((BQQuestion *)notification.userInfo[@"question"] == self.question) {
         [self displayCreatedHud];
-        [self.answersTableView reloadData];
         self.answerCountLabel.text = [self answerCountLabelText];
     }
 }

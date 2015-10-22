@@ -64,6 +64,7 @@
     question.author = [PFUser currentUser];
     question.text = form[@"text"];
     question.answers = [NSArray array];
+    question.answersCount = 0;
     [question saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (callback) {
             if (succeeded) {
@@ -80,7 +81,10 @@
     answer.author = [PFUser currentUser];
     answer.text = answerForm[@"text"];
     answer.upVoters = [NSArray array];
+    answer.upvoteCount = 0;
+    answer.question = question;
     question.answers = [question.answers arrayByAddingObject:answer];
+    question.answersCount = question.answers.count;
     [question saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (callback) {
             if (succeeded) {
@@ -147,6 +151,8 @@
         
         answer.upVoters = array;
     }
+    
+    answer.upvoteCount = answer.upVoters.count;
     
     if ([answer isDirty]) {
         [answer saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {

@@ -14,5 +14,6 @@
 @property (nonatomic, strong) PFUser *author;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSArray<BQAnswer *> *answers;
+@property (nonatomic, assign) NSInteger answersCount;
 
 @end

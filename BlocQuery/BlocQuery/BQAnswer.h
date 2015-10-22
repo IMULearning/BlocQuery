@@ -8,10 +8,14 @@
 
 #import <Parse/Parse.h>
 
+@class BQQuestion;
+
 @interface BQAnswer : PFObject <PFSubclassing>
 
 @property (nonatomic, strong) PFUser *author;
+@property (nonatomic, strong) BQQuestion *question;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSArray<PFUser *> *upVoters;
+@property (nonatomic, assign) NSInteger upvoteCount;
 
 @end

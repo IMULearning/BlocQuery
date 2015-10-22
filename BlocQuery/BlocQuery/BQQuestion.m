@@ -14,6 +14,7 @@
 @dynamic author;
 @dynamic text;
 @dynamic answers;
+@dynamic answersCount;
 
 + (void)load {
     [self registerSubclass];

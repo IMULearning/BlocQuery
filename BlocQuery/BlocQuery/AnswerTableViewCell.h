@@ -8,9 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "BQAnswer.h"
+#import <ParseUI.h>
 
-@interface AnswerTableViewCell : UITableViewCell
+@class AnswerTableViewCell;
+
+@protocol AnswerTableViewCellUpvoteProtocal <NSObject>
+
+- (void)cell:(AnswerTableViewCell *)cell didFinishUpvote:(BOOL)vote withAnswer:(BQAnswer *)answer;
+
+@end
+
+@interface AnswerTableViewCell : PFTableViewCell
 
 @property (nonatomic, strong) BQAnswer *answer;
+@property (nonatomic, weak) id <AnswerTableViewCellUpvoteProtocal> upvoteDelegate;
 
 @end

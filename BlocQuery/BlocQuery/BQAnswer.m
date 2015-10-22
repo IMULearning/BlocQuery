@@ -11,9 +11,11 @@
 
 @implementation BQAnswer
 
+@dynamic question;
 @dynamic author;
 @dynamic text;
 @dynamic upVoters;
+@dynamic upvoteCount;
 
 + (void)load {
     [self registerSubclass];

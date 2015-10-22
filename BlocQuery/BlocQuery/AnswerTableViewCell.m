@@ -103,7 +103,7 @@
 
 - (BOOL) didIUpvote {
     for (PFUser *upVoter in self.answer.upVoters) {
-        if ([upVoter.email isEqualToString:[PFUser currentUser].email])
+        if ([[upVoter fetchIfNeeded].email isEqualToString:[PFUser currentUser].email])
             return YES;
     }
     return NO;
@@ -123,9 +123,15 @@
     
     [[ParseService service] vote:self.upvoted forAnswer:self.answer block:^(BOOL succeeded, NSError *error) {
         [self.answer fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-            self.upvoted = [self didIUpvote];
-            [self updateVoteButtonToVoted:self.upvoted];
-            [self updateUpvoteCountLabel];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.upvoted = [self didIUpvote];
+                [self updateVoteButtonToVoted:self.upvoted];
+                [self updateUpvoteCountLabel];
+                
+                if (self.upvoteDelegate) {
+                    [self.upvoteDelegate cell:self didFinishUpvote:self.upvoted withAnswer:self.answer];
+                }
+            });
         }];
     }];
 }
