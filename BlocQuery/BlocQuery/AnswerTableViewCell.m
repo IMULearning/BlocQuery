@@ -62,14 +62,16 @@
 }
 
 - (void) updateAuthorAvatar {
-    id photo = [self.answer.author fetchIfNeeded][@"photo"];
-    if ([photo isKindOfClass:[PFFile class]]) {
-        self.authorImage.file = photo;
-    } else {
-        [self.authorImage clearFile];
-    }
-    
-    [self.authorImage loadInBackground];
+    [self.answer.author fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        id photo = object[@"photo"];
+        if ([photo isKindOfClass:[PFFile class]]) {
+            self.authorImage.file = photo;
+        } else {
+            [self.authorImage clearFile];
+        }
+        
+        [self.authorImage loadInBackground];
+    }];
 }
 
 - (void) updateUpvoteCountLabel {
@@ -94,16 +96,21 @@
 #pragma mark - Answer
 
 - (void)setAnswer:(BQAnswer *)answer {
-    _answer = [answer fetchIfNeeded];
-    if (_answer) {
-        self.upvoted = [self didIUpvote];
-        [self updateUI];
-    }
+    [answer fetchIfNeededInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        _answer = (BQAnswer *)object;
+        if (_answer) {
+            self.upvoted = [self didIUpvote];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self updateUI];
+            });
+        }
+        
+    }];
 }
 
 - (BOOL) didIUpvote {
     for (PFUser *upVoter in self.answer.upVoters) {
-        if ([[upVoter fetchIfNeeded].email isEqualToString:[PFUser currentUser].email])
+        if ([upVoter.email isEqualToString:[PFUser currentUser].email])
             return YES;
     }
     return NO;

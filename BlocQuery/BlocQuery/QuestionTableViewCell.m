@@ -68,14 +68,18 @@
 }
 
 - (void) updateAvatar {
-    id photo = [self.question.author fetchIfNeeded][@"photo"];
-    if ([photo isKindOfClass:[PFFile class]]) {
-        self.avartarImage.file = photo;
-    } else {
-        [self.avartarImage clearFile];
-    }
-    
-    [self.avartarImage loadInBackground];
+    [self.question.author fetchIfNeededInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (!error) {
+            id photo = object[@"photo"];
+            if ([photo isKindOfClass:[PFFile class]]) {
+                self.avartarImage.file = photo;
+            } else {
+                [self.avartarImage clearFile];
+            }
+            
+            [self.avartarImage loadInBackground];
+        }
+    }];
 }
 
 - (void)userAvatarUpdated:(NSNotification *)notification {
